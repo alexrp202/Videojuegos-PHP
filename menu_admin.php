@@ -25,7 +25,7 @@ session_start();
       <div class="col-3">
 		
 	  </div>
-          <div class="col-6">
+          <div class="col-6" style="color:white">
 	<h1 align="center">Bienvenido/a: <?php echo $nick?></h1>
 	<br>
 
@@ -37,7 +37,7 @@ session_start();
 
  	</tr>		
 	<tr>
-		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='mostrarjuegos.php'" class="btn btn-primary btn-lg">Ver productos(como cliente)</button></td>
+		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='mostrarjuegos.php'" class="btn btn-primary btn-lg">Ver productos</button></td>
  	</tr>
 	<tr>
 		<td align="center"><button style='width:25%;' type="button" onclick="location.href='logout.php'" class="btn btn-secondary btn-lg">Salir</button></td>
