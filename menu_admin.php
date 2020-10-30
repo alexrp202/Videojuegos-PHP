@@ -4,7 +4,12 @@ session_start();
 
 
 		$nick=$_SESSION["nick_logueado"];
-	
+		if($nick=="admin"){
+
+
+
+			
+		}
 
 		?>
 		<html>

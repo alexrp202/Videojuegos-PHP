@@ -4,7 +4,7 @@ $consulta = ConsultarProducto($_GET['id']);
 
 function ConsultarProducto($id_prod)
 {
-  include 'conexion.php';
+  include 'a_conexion.php';
   $sentencia = "SELECT * FROM videojuegos WHERE id='" . $id_prod . "' ";
   $resultado = $conexion->query($sentencia) or die("Error al consultar producto" . mysqli_error($conexion));
   $fila = $resultado->fetch_assoc();

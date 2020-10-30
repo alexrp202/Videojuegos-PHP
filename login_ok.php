@@ -48,9 +48,16 @@ header("Content-Type: text/html;charset=utf-8");
 		echo "Login OK";
 		$_SESSION["nick_logueado"]=$nick;
 		?> 
-		
-		<a href="menu_admin.php">Acceder al menu</a>
-		
+		<?php
+		if($nick=="admin"){
+			echo "<a href='menu_admin.php'>Acceder al menu</a>"	;
+		}
+		else{
+			echo "<a href='menu_admin.php'>Acceder al menu usuario</a>";
+			
+		}
+
+		?>
 		<?php
 		
 		
