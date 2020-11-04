@@ -52,7 +52,7 @@ function ConsultarProducto($id_prod)
         </span>
         <br>
         <form action="a_modif_prod2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
-          Id: <input type="text" name="id"><br>
+        
           <label>Nombre Videojuego </label>
           <input type="text" id="Titulo" name="Titulo" value="<?php echo $consulta[0] ?>"><br>
 

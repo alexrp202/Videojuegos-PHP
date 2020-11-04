@@ -25,7 +25,6 @@ include "a_conexion.php";
 		<br>
 
 		<form action="a_nuevo_prod2.php" method="post" style="border-collapse: separate; border-spacing: 10px 5px;">
-			Id: <input type="text" name="id"><br>
 			Titulo: <input type="text" class="form-control" name="Titulo" placeholder="Introducir Titulo" /><br>
 			<label for="Genero">Genero</label>
 			<select class="form-control" name="Genero">
@@ -36,7 +35,7 @@ include "a_conexion.php";
 				<option>Estrategia</option>
 			</select>
 			<br>
-			Ano: <input type="text" class="form-control" name="Ano" placeholder="Introducir Año" /><br>
+			Ano: <input type="text" class="form-control" name="Ano" placeholder="Introducir Año"><br>
 			Plataforma: <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" /><br>
 			Pegi: <input type="text" class="form-control" name="PEGI" placeholder="Introducir Pegi" /><br>
 			Desarrollador: <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" /><br>

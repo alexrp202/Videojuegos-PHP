@@ -1,6 +1,7 @@
 <?php
 	
-	ModificarProducto($_POST['id'], $_POST['Titulo'], $_POST['Genero'], $_POST['Ano'], $_POST['Plataforma'], $_POST['PEGI'], $_POST['Desarrollador'] );
+
+	ModificarProducto($_GET['id'], $_POST['Titulo'], $_POST['Genero'], $_POST['Ano'], $_POST['Plataforma'], $_POST['PEGI'], $_POST['Desarrollador'] );
 
 	function ModificarProducto($id, $Titulo,$Genero, $Ano,$Plataforma,$PEGI,$Desarrollador)
 	{
@@ -12,5 +13,5 @@
 
 <script type="text/javascript">
 	alert("Datos Actualizados Exitosamante!!");
-	window.location.href='index.php';
+	window.location.href='a_index.php';
 </script>
