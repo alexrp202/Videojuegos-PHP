@@ -45,17 +45,16 @@ function ConsultarProducto($id_prod)
       <img src="images/swirl.png" width="1188" id="img1">
     </div>
 
-    <div id="contenido" >
+    <div id="contenido">
       <div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
         <span>
           <h1>Modificar Producto</h1>
         </span>
         <br>
-        <form action="a_modif_prod2.php" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
-        
+        <form action="a_modif_prod2.php?id=<?php echo $_GET['id']?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
+
           <label>Nombre Videojuego </label>
           <input type="text" id="Titulo" name="Titulo" value="<?php echo $consulta[0] ?>"><br>
-
           <label for="Genero">Genero</label>
           <select class="form-control" name="Genero" value="<?php echo $consulta[1] ?>"><br>
             <option>Terror</option>
@@ -75,7 +74,7 @@ function ConsultarProducto($id_prod)
 
     </div>
 
-    
+
 
   </div>
 
