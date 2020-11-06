@@ -4,12 +4,6 @@ session_start();
 
 
 		$nick=$_SESSION["nick_logueado"];
-		if($nick=="admin"){
-
-
-
-			
-		}
 
 		?>
 		<html>
@@ -43,10 +37,14 @@ session_start();
  	</tr>		
 	<tr>
 		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='mostrarjuegos.php'" class="btn btn-primary btn-lg">Ver productos</button></td>
+	 </tr>
+	 <tr>
+		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='./Sencillo carrito de compras con php y sesiones/index.php'" class="btn btn-primary btn-lg">Ver carrito</button></td>
  	</tr>
 	<tr>
 		<td align="center"><button style='width:25%;' type="button" onclick="location.href='logout.php'" class="btn btn-secondary btn-lg">Salir</button></td>
 </tr>
+
 	</table>
 
 			</div>

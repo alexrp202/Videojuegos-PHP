@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("America/Lima");
 // Iniciamos la clase de la carta
 include 'La-carta.php';
 $cart = new Cart;
@@ -9,11 +10,11 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
         $productID = $_REQUEST['id'];
         // get product details
-        $query = $db->query("SELECT * FROM videojuegos WHERE id = ".$productID);
+        $query = $db->query("SELECT * FROM mis_productos WHERE id = ".$productID);
         $row = $query->fetch_assoc();
         $itemData = array(
             'id' => $row['id'],
-            'name' => $row['Titulo'],
+            'name' => $row['name'],
             'price' => $row['price'],
             'qty' => 1
         );

@@ -15,7 +15,7 @@ if($cart->total_items() <= 0){
 $_SESSION['sessCustomerID'] = 1;
 
 // get customer details by session customer ID
-$query = $db->query("SELECT * FROM videojuegos WHERE id = ".$_SESSION['sessCustomerID']);
+$query = $db->query("SELECT * FROM clientes WHERE id = ".$_SESSION['sessCustomerID']);
 $custRow = $query->fetch_assoc();
 ?>
 <!DOCTYPE html>

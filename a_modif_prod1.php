@@ -54,7 +54,13 @@ function ConsultarProducto($id_prod)
         <form action="a_modif_prod2.php?id=<?php echo $_GET['id']?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
 
           <label>Nombre Videojuego </label>
-          <input type="text" id="Titulo" name="Titulo" value="<?php echo $consulta[0] ?>"><br>
+          <input type="text" class="form-control" name="Ano" placeholder="Introducir Nombre" value="<?php echo $consulta[0] ?>"><br>
+
+          <div class="form-group">
+        <label for="exampleFormControlTextarea1">Descripcion</label>
+         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+         </div>
+
           <label for="Genero">Genero</label>
           <select class="form-control" name="Genero" value="<?php echo $consulta[1] ?>"><br>
             <option>Terror</option>
@@ -68,17 +74,11 @@ function ConsultarProducto($id_prod)
           Plataforma: <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" value="<?php echo $consulta[3] ?>"><br>
           Pegi: <input type="text" class="form-control" name="PEGI" placeholder="Introducir Pegi" value="<?php echo $consulta[4] ?>"><br>
           Desarrollador: <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" value="<?php echo $consulta[5] ?>">
+          Precio: <input type="number" class="form-control" name="precio" placeholder="Introducir precio"  value="<?php echo $consulta[6] ?>" /><br>
           <button type="submit" class="btn btn-success">Guardar</button>
         </form>
       </div>
-
     </div>
-
-
-
   </div>
-
-
 </body>
-
 </html>

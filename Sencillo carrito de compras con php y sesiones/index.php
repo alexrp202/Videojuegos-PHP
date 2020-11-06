@@ -33,19 +33,29 @@ include 'Configuracion.php';
     <div id="products" class="row list-group">
         <?php
         //get rows query
-        $query = $db->query("SELECT * FROM videojuegos ORDER BY id DESC LIMIT 10");
+        $query = $db->query("SELECT * FROM mis_productos ORDER BY id DESC LIMIT 10");
         if($query->num_rows > 0){ 
             while($row = $query->fetch_assoc()){
         ?>
         <div class="item col-lg-4">
             <div class="thumbnail">
                 <div class="caption">
-                    <h4 class="list-group-item-heading"><?php echo $row["Titulo"]; ?></h4>
-                
-                    <p class="list-group-item-text"><?php echo $row["descripcion"]; ?></p>
+                    <h4 class="list-group-item-heading"><?php echo $row["name"]; ?></h4>
+                    <p class="list-group-item-text"><br><?php echo $row["description"]; ?></p>
+                    <br>
+                    <p class="list-group-item-text">Genero: <?php echo $row["Genero"]; ?></p>
+                    <br>
+                    <p class="list-group-item-text">Año: <?php echo $row["Ano"]; ?></p>
+                    <br>
+                    <p class="list-group-item-text">Plataforma: <?php echo $row["Plataforma"]; ?></p>
+                    <br>
+                    <p class="list-group-item-text">PEGI: <?php echo $row["PEGI"]; ?></p>
+                    <br>
+                    <p class="list-group-item-text">Desarrollador: <?php echo $row["Desarrollador"]; ?></p>
+                    <br>
                     <div class="row">
                         <div class="col-md-6">
-                            <p class="lead"><?php echo $row["price"].' €'; ?></p>
+                            <p class="lead"><?php echo '€'.$row["price"].' EUR'; ?></p>
                         </div>
                         <div class="col-md-6">
                             <a class="btn btn-success" href="AccionCarta.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar a la Carta</a>

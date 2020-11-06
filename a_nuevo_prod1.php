@@ -39,6 +39,7 @@ include "a_conexion.php";
 			Plataforma: <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" /><br>
 			Pegi: <input type="text" class="form-control" name="PEGI" placeholder="Introducir Pegi" /><br>
 			Desarrollador: <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" /><br>
+			Precio: <input type="number" class="form-control" name="precio" placeholder="Introducir precio" /><br>
 			<br>
 			<input type="submit" value="Entrar" />
 		</form>

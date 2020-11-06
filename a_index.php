@@ -22,7 +22,8 @@
   			<th>Ano</th>
         <th>Platafotma</th>
         <th>Pegi</th>
-  			<th>Desarrollador</th>
+        <th>Desarrollador</th>
+        <th>Precio</th>
   			<th> <a href="a_nuevo_prod1.php"> <button type="button" class="btn btn-info">Nuevo</button> </a> </th>
   		</thead>
 
@@ -39,6 +40,7 @@
             echo "<td>"; echo $fila['Plataforma']; echo "</td>";
             echo "<td>"; echo $fila['PEGI']; echo "</td>";
             echo "<td>"; echo $fila['Desarrollador']; echo "</td>";
+            echo "<td>"; echo $fila['precio']; echo " EUR";echo "</td>";
             echo "<td><a href='a_modif_prod1.php?id=".$fila['id']."'> <button type='button' class='btn btn-success'><span class='glyphicon glyphicon-pencil'></span>Modificar</button> </a></td>";
             echo " <td><a href='a_eliminar_prod.php?id=".$fila['id']."'> <button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>Eliminar</button> </a></td>";
           echo "</tr>";
