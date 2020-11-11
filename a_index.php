@@ -17,7 +17,8 @@
   <div id="contenido">
   	<table style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
   		<thead>
-  			<th>Titulo.</th>
+        <th>Titulo.</th>
+        <th>Descripcion</th>
   			<th>Genero</th>
   			<th>Ano</th>
         <th>Platafotma</th>
@@ -29,12 +30,13 @@
 
       <?php
         include "a_conexion.php";
-        $sentecia="SELECT * FROM videojuegos";
+        $sentecia="SELECT * FROM mis_productos";
         $resultado= $conexion->query($sentecia) or die (mysqli_error($conexion));
         while($fila=$resultado->fetch_assoc())
         {
           echo "<tr>";
             echo "<td>"; echo $fila['Titulo']; echo "</td>";
+            echo "<td>"; echo $fila['Desc']; echo "</td>";
             echo "<td>"; echo $fila['Genero']; echo "</td>";
             echo "<td>"; echo $fila['Ano']; echo "</td>";
             echo "<td>"; echo $fila['Plataforma']; echo "</td>";

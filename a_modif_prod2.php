@@ -4,7 +4,7 @@
 	function ModificarProducto($id, $Titulo,$Genero, $Ano,$Plataforma,$PEGI,$Desarrollador,$precio)
 	{
 		include 'a_conexion.php';
-		echo $sentencia="UPDATE videojuegos SET id='".$id."',Titulo='".$Titulo."',Genero='".$Genero."',Ano='".$Ano."',Plataforma='".$Plataforma."',PEGI='".$PEGI."',Desarrollador='".$Desarrollador."',precio='".$precio."'WHERE id='".$id."' ";
+		echo $sentencia="UPDATE mis_productos SET id='".$id."',Titulo='".$Titulo."',Genero='".$Genero."',Ano='".$Ano."',Plataforma='".$Plataforma."',PEGI='".$PEGI."',Desarrollador='".$Desarrollador."',precio='".$precio."'WHERE id='".$id."' ";
 		$conexion->query($sentencia) or die ("Error al actualizar datos".mysqli_error($conexion));
 	}
 ?>
