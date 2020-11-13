@@ -1,5 +1,12 @@
 <?php
+session_start();
+$nick=$_SESSION["nick_logueado"];
+echo $nick;
 include 'Configuracion.php';
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -65,11 +72,11 @@ include 'Configuracion.php';
             </div>
         </div>
         <?php } }else{ ?>
-        <p>Producto(s) no existe.....</p>
+        <p>No hay productos disponibles</p>
         <?php } ?>
     </div>
         </div>
- <div class="panel-footer">BaulPHP</div>
+ <div class="panel-footer">Play+</div>
  </div><!--Panek cierra-->
  
 </div>

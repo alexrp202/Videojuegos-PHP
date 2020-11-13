@@ -23,7 +23,8 @@ include "a_conexion.php";
 		<br>
 
 		<form action="a_nuevo_prod2.php" method="post" style="border-collapse: separate; border-spacing: 10px 5px;" class="p-4">
-			Titulo: <input type="text" class="form-control" name="name" placeholder="Introducir Titulo" /><br>
+		ID: <input type="text" class="form-control" name="id" placeholder="ID" disabled /><br>	
+		Titulo: <input type="text" class="form-control" name="name" placeholder="Introducir Titulo" /><br>
 			<div class="form-group">
 				<label for="Descripcion">Descripcion</label>
 				<textarea class="form-control" name="description" id="description" rows="3"></textarea>

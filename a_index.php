@@ -1,3 +1,7 @@
+<?php
+session_start();
+$nick=$_SESSION["nick_logueado"];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,14 +39,14 @@
         while($fila=$resultado->fetch_assoc())
         {
           echo "<tr>";
-            echo "<td>"; echo $fila['Titulo']; echo "</td>";
-            echo "<td>"; echo $fila['Desc']; echo "</td>";
+            echo "<td>"; echo $fila['name']; echo "</td>";
+            echo "<td>"; echo $fila['description']; echo "</td>";
             echo "<td>"; echo $fila['Genero']; echo "</td>";
             echo "<td>"; echo $fila['Ano']; echo "</td>";
             echo "<td>"; echo $fila['Plataforma']; echo "</td>";
             echo "<td>"; echo $fila['PEGI']; echo "</td>";
             echo "<td>"; echo $fila['Desarrollador']; echo "</td>";
-            echo "<td>"; echo $fila['precio']; echo " EUR";echo "</td>";
+            echo "<td>"; echo $fila['price']; echo " EUR";echo "</td>";
             echo "<td><a href='a_modif_prod1.php?id=".$fila['id']."'> <button type='button' class='btn btn-success'><span class='glyphicon glyphicon-pencil'></span>Modificar</button> </a></td>";
             echo " <td><a href='a_eliminar_prod.php?id=".$fila['id']."'> <button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>Eliminar</button> </a></td>";
           echo "</tr>";

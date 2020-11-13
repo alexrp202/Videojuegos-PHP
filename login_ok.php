@@ -1,14 +1,15 @@
 <?php
 	
-session_start();
-
+	session_start();
+	$nick=$_SESSION["nick_logueado"];
 $logueado=0;
 	
 header("Content-Type: text/html;charset=utf-8");
 
 
-		$nick = $_POST["nick"];
+		$name = $_POST["nick"];
 		$password = $_POST["password"];
+		echo $nick;
 
 	$con = mysqli_connect("localhost","root","usbw","test");
 	
@@ -22,7 +23,7 @@ header("Content-Type: text/html;charset=utf-8");
 		echo "Se ha conectado a la base de datos" . "<br>";
 	}
 	
-	$instruccion = "select count(*) as cuantos from usuarios where nick = '$nick'";
+	$instruccion = "select count(*) as cuantos from clientes where name = '$name'";
 	$resultado = mysqli_query($con, $instruccion);
 		while ($fila = $resultado->fetch_assoc()) {
 		$numero=$fila["cuantos"];
@@ -31,7 +32,7 @@ header("Content-Type: text/html;charset=utf-8");
 		echo "El usuario no existe";
 	}
 	else{
-	$instruccion = "select password as cuantos from usuarios where nick = '$nick'";
+	$instruccion = "select password as cuantos from clientes where name = '$name'";
 	$resultado = mysqli_query($con, $instruccion);
 
 	while ($fila = $resultado->fetch_assoc()) {
@@ -46,18 +47,27 @@ header("Content-Type: text/html;charset=utf-8");
 	
 	else{
 		echo "Login OK";
-		$_SESSION["nick_logueado"]=$nick;
+		$_SESSION["nick_logueado"]=$name;
 		?> 
 		<?php
-		if($nick=="admin"){
-			echo "<a href='menu_admin.php'>Acceder al menu</a>"	;
+		if($name=="admin"){?>
+	<script type="text/javascript">
+	alert("Bienvenido Admin");
+	window.location.href='menu_admin.php';
+		</script>
+		<?php
 		}
-		else{
-			echo "<a href='menu_admin.php'>Acceder al menu usuario</a>";
-			
-		}
+		else{?>
 
-		?>
+	<script type="text/javascript">
+	alert("Bienvenido <?php echo $name?>");
+	window.location.href='./carrito/index.php';
+
+		</script>
+		<?php	
+		}?>
+
+		
 		<?php
 		
 		

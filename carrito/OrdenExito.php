@@ -1,5 +1,5 @@
 <?php
-if(!isset($_REQUEST['id'])){
+if(!isset($_REQUEST['nick_logueado'])){
     header("Location: index.php");
 }
 ?>

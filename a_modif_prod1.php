@@ -52,7 +52,7 @@ function ConsultarProducto($id_prod)
 
           <div class="form-group">
         <label for="exampleFormControlTextarea1">Descripcion</label>
-         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"value="<?php echo $consulta[1] ?>"></textarea>
+         <textarea class="form-control" name="description" id="description" id="exampleFormControlTextarea1" rows="3"value="<?php echo $consulta[1] ?>"></textarea>
          </div>
 
           <label for="Genero">Genero</label>

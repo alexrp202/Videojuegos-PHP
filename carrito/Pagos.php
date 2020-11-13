@@ -11,11 +11,11 @@ if($cart->total_items() <= 0){
     header("Location: index.php");
 }
 
-// set customer ID in session
-$_SESSION['sessCustomerID'] = 1;
+// set customer ID in session   
+$nick=$_SESSION["nick_logueado"];
 
 // get customer details by session customer ID
-$query = $db->query("SELECT * FROM clientes WHERE id = ".$_SESSION['sessCustomerID']);
+$query = $db->query("SELECT * FROM clientes WHERE name = '$nick'")      ;
 $custRow = $query->fetch_assoc();
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ $custRow = $query->fetch_assoc();
     <thead>
         <tr>
             <th>Producto</th>
-            <th>Pricio</th>
+            <th>Precio</th>
             <th>Cantidad</th>
             <th>Sub total</th>
         </tr>
@@ -71,7 +71,7 @@ $custRow = $query->fetch_assoc();
             <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
         </tr>
         <?php } }else{ ?>
-        <tr><td colspan="4"><p>No hay articulos en tu carta......</p></td>
+        <tr><td colspan="4"><p>No hay articulos en tu carrito......</p></td>
         <?php } ?>
     </tbody>
     <tfoot>
@@ -85,10 +85,10 @@ $custRow = $query->fetch_assoc();
     </table>
     <div class="shipAddr">
         <h4>Detalles de envío</h4>
-        <p><?php echo $custRow['name']; ?></p>
-        <p><?php echo $custRow['email']; ?></p>
-        <p><?php echo $custRow['phone']; ?></p>
-        <p><?php echo $custRow['address']; ?></p>
+        <p>Nombre del cliente:<b> <?php echo $custRow['name']; ?></b></p>
+        <p>Email del cliente:<b> <?php echo $custRow['email']; ?></b></p>
+        <p>Telefono del cliente:<b> <?php echo $custRow['phone']; ?></b></p>
+        <p>Direccion del cliente:<b> <?php echo $custRow['address']; ?></b></p>
     </div>
     <div class="footBtn">
         <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
