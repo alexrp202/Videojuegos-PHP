@@ -1,6 +1,7 @@
 <?php
-if(!isset($_REQUEST['nick_logueado'])){
-    header("Location: index.php");
+if(!isset($_REQUEST['id'])){
+  header("Location: index.php");
+  
 }
 ?>
 <!DOCTYPE html>

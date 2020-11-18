@@ -10,13 +10,12 @@ $cart = new Cart;
 if($cart->total_items() <= 0){
     header("Location: index.php");
 }
-
-// set customer ID in session   
 $nick=$_SESSION["nick_logueado"];
-
 // get customer details by session customer ID
-$query = $db->query("SELECT * FROM clientes WHERE name = '$nick'")      ;
+$query = $db->query("SELECT * FROM clientes WHERE name = '$nick'");
 $custRow = $query->fetch_assoc();
+
+$_SESSION['sessCustomerID']=$custRow['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

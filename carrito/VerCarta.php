@@ -17,7 +17,8 @@ $cart = new Cart;
     </style>
     <script>
     function updateCartItem(obj,id){
-        $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
+
+        $.get("AccionCarta.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
             if(data == 'ok'){
                 location.reload();
             }else{

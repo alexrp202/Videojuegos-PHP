@@ -3,15 +3,11 @@ session_start();
 $nick=$_SESSION["nick_logueado"];
 echo $nick;
 include 'Configuracion.php';
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>PHP Shopping Cart Tutorial</title>
+    <title>Catalogo</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
