@@ -2,5 +2,5 @@
 <?php
 @session_start();
 session_destroy();
-header("Location: alta.html");
+header("Location: login.html");
 ?>

@@ -28,27 +28,26 @@
                 </div>
                 <form class="col-12" action="register_ok.php" method = "post">
                     <div class="form-group" id="user-group">
-                        <input type="text" name="nick" class="form-control" placeholder="Nombre de usuario"/>
+                        <input type="text" name="nick" class="form-control" placeholder="Nombre de usuario"  minlength="5" maxlength="40" required/>
                     </div>
                     <div class="form-group" id="contrasena-group">
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña" />
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="8" required />
 					</div>
 
 					<div class="form-group" id="contrasena-group">
-                        <input type="password" name="password" class="form-control" placeholder="Repetir Contraseña" />
+                        <input type="password" name="password" class="form-control" placeholder="Repetir Contraseña" minlength="8" required />
 					</div>
-
-					
+				
 					<div class="form-group" id="email-group">
-                        <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" />
+                        <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required />
 					</div>
 
 					<div class="form-group" id="tel-group">
-                        <input type="tel" name="telefono" class="form-control" placeholder="Intruduce tu telefono" />
+                        <input type="tel" pattern="[0-9]{9}"   name="telefono" class="form-control" placeholder="Intruduce tu telefono" required />
 					</div>
 
 					<div class="form-group" id="direccion-group">
-                        <input type="text" name="direccion" class="form-control" placeholder="Intruduce tu direccion" />
+                        <input type="text" name="direccion" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required />
 					</div>
 
                     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Crear Cuenta </button>
