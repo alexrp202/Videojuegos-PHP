@@ -49,6 +49,7 @@ header("Content-Type: text/html;charset=utf-8");
 		echo "Login OK";
 		$_SESSION["nick_logueado"]=$name;
 		?> 
+		
 		<?php
 		if($name=="admin"){?>
 	<script type="text/javascript">

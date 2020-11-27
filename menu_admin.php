@@ -1,3 +1,4 @@
+<a href=""></a>
 <?php
 	
 session_start();
@@ -28,8 +29,15 @@ session_start();
 
 	<table  class="table table-hover">
 	<tr>
-		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='a_index.php'" class="btn btn-primary btn-lg">Modificar elementos</button></td>
+		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='a_index.php'" class="btn btn-primary btn-lg">Gestion de productos</button></td>
 	</tr>
+
+	<tr>
+		<td align="center"><button style='width:25%;' width="20%" type="button" onclick="location.href='usuarios/u_index.php'" class="btn btn-primary btn-lg">Gestion de usuarios</button></td>
+	</tr>
+
+
+
 
  	</tr>		
 	<tr>
