@@ -10,7 +10,7 @@ $address=$_POST["address"];
 	function NuevoVideojuego($name,$password,$email,$phone,$address)
 	{
 		include 'u_conexion.php';
-		$sentencia= "insert into clientes (id,name,password,email,phone,address values(null,'$name','$password','$email','$phone','$address')";
+		$sentencia= "insert into clientes (id,name,password,email,phone,address) values(null,'$name','$password','$email','$phone','$address')";
 		$conexion->query($sentencia) or die ("Error al ingresar los datos".mysqli_error($conexion));
 	}
 ?>
