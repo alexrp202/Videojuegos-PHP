@@ -1,6 +1,19 @@
 <?php
 include "u_conexion.php";
-?>
+
+session_start();
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+		$nick=$_SESSION["nick_logueado"];
+		?>
+
 
 <!DOCTYPE html>
 <html>

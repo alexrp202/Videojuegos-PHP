@@ -1,15 +1,29 @@
 <?php
 	
 	session_start();
-	$nick=$_SESSION["nick_logueado"];
-$logueado=0;
+	$logueado=0;
 	
+if(!isset($_POST["nick"])){
+	?>
+	<script type="text/javascript">
+	alert("No estas logueado");
+	window.location.href='./login.html';
+		</script>
+		<?php	
+}
+
+
+
+
+
+
+
 header("Content-Type: text/html;charset=utf-8");
 
 
 		$name = $_POST["nick"];
 		$password = $_POST["password"];
-		echo $nick;
+		
 
 	$con = mysqli_connect("localhost","root","usbw","test");
 	
@@ -52,10 +66,10 @@ header("Content-Type: text/html;charset=utf-8");
 		
 		<?php
 		if($name=="admin"){?>
-	<script type="text/javascript">
+	 <script type="text/javascript">
 	alert("Bienvenido Admin");
 	window.location.href='menu_admin.php';
-		</script>
+		</script> 
 		<?php
 		}
 		else{?>
@@ -76,9 +90,6 @@ header("Content-Type: text/html;charset=utf-8");
 	}
 	}
 	
-	
-
-
 
 
 

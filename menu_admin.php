@@ -1,9 +1,19 @@
-<a href=""></a>
+
 <?php
 	
 session_start();
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='./login.html';
+				</script>
+				<?php	
+		}
 		$nick=$_SESSION["nick_logueado"];
 		?>
+		
 		<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

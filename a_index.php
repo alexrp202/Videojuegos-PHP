@@ -1,7 +1,17 @@
 <?php
+	
 session_start();
-$nick=$_SESSION["nick_logueado"];
-?>
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='./login.html';
+				</script>
+				<?php	
+		}
+		$nick=$_SESSION["nick_logueado"];
+		?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,4 +1,17 @@
 <?php
+
+session_start();
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='./login.html';
+				</script>
+				<?php	
+		}
+		$nick=$_SESSION["nick_logueado"];
+	
 	ModificarProducto($_GET['id'], $_POST['Titulo'], $_POST['Genero'], $_POST['Ano'], $_POST['Plataforma'], $_POST['PEGI'], $_POST['Desarrollador'],$_POST['precio'] );
 
 	function ModificarProducto($id, $Titulo,$Genero, $Ano,$Plataforma,$PEGI,$Desarrollador,$precio)
