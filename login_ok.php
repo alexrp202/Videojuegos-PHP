@@ -76,7 +76,7 @@ header("Content-Type: text/html;charset=utf-8");
 
 	<script type="text/javascript">
 	alert("Bienvenido <?php echo $name?>");
-	window.location.href='./carrito/index.php';
+	window.location.href='menu_usuario.php';
 
 		</script>
 		<?php	

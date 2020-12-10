@@ -21,7 +21,7 @@ session_start();
 <style type="text/css">
 @import url("css/mycss.css");
 </style>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="todo">
