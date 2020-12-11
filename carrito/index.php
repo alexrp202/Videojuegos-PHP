@@ -11,7 +11,11 @@ session_start();
 				<?php	
 		}
 		$nick=$_SESSION["nick_logueado"];
-		
+        $Preciof=1;
+        $idf=0;
+        $filtrar="";
+        $Where="";
+        $generos="";
 include 'Configuracion.php';
 ?>
 <!DOCTYPE html>
@@ -40,13 +44,74 @@ include 'Configuracion.php';
 </ul>
 </div>
 
-<div class="panel-body">
+<div class="panel-body container">
     <h1>Mis Productos</h1>
     <a href="VerCarta.php" class="cart-link" title="Ver Carta"><i class="glyphicon glyphicon-shopping-cart"></i></a>
     <div id="products" class="row list-group">
+    <div class="form-group container-fluid">
+    <label for="exampleFormControlSelect1">Filtrar por:</label>
+    
+    <form  method="get">
+   
+    <select class="form-control " style="width: auto;"  name='seleccion'>
+        <option selected disabled >Selecciona una</option>
+		<option value='0'>Id</option>
+		<option value='1'>Precio</option>
+		<option value='2'>Videojuegos de Terror</option>
+		<option value='3'>Videojuegos de Accion</option>
+		<option value='4'>Videojuegos de Aventura</option>
+		<option value='5'>Videojuegos de Puzzles</option>
+		<option value='6'>Videojuegos de Estrategia</option>
+        </select>
+        <br>
+    <input type="submit" class="btn btn-success"></input>
+    </form>
+    
+    <br>
+    <?php 
+     
+        $ordenar=$_GET['seleccion'];
+
+
+    if ($ordenar==0){
+        $filtrar="id";
+        $query = $db->query("SELECT * FROM mis_productos ORDER BY $filtrar DESC LIMIT 10 ");
+    } 
+    else if ($ordenar==1){
+        $filtrar="price";
+        $query = $db->query("SELECT * FROM mis_productos ORDER BY $filtrar DESC LIMIT 10 ");
+    } 
+    else if ($ordenar==2){
+        $filtrar="terror";
+        $query = $db->query("SELECT * FROM mis_productos WHERE Genero LIKE 'Terror' ");
+
+    } 
+    else if ($ordenar==3){
+        $filtrar="Accion";
+        $query = $db->query("SELECT * FROM mis_productos WHERE Genero LIKE 'Accion' ");
+    } 
+    else if ($ordenar==4){
+        $filtrar="Accion";
+        $query = $db->query("SELECT * FROM mis_productos WHERE Genero LIKE 'Aventura' ");
+    } 
+    else if ($ordenar==5){
+        $filtrar= "Puzzles";
+        $query = $db->query("SELECT * FROM mis_productos WHERE Genero LIKE 'Puzzles' ");
+    } 
+    else if ($ordenar==6){
+        $filtrar="Estrategia";
+        $query = $db->query("SELECT * FROM mis_productos WHERE Genero LIKE 'Estrategia' ");
+    } 
+   
+    
+    
+    ?>
+    Filtrado por:<b> <?php echo $filtrar; ?></b>
+  </div>
         <?php
         //get rows query
-        $query = $db->query("SELECT * FROM mis_productos ORDER BY id DESC LIMIT 10");
+       
+      
         if($query->num_rows > 0){ 
             while($row = $query->fetch_assoc()){
         ?>
@@ -78,7 +143,7 @@ include 'Configuracion.php';
             </div>
         </div>
         <?php } }else{ ?>
-        <p>No hay productos disponibles</p>
+        <p class="container">No hay productos disponibles</p>
         <?php } ?>
     </div>
         </div>

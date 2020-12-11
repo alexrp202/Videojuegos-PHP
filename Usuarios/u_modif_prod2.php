@@ -18,7 +18,9 @@ session_start();
 	function ModificarProducto($id,$name,$password,$email,$phone,$address)
 	{
 		include 'u_conexion.php';
-		echo $sentencia="UPDATE clientes SET id='".$id."',name='".$name."',password='".$password."',email='".$email."',phone='".$phone."',address='".$address."'WHERE id='".$id."' ";
+		echo $sentencia="UPDATE clientes 
+		SET id='".$id."',name='".$name."',password='".$password."',email='".$email."',phone='".$phone."',address='".$address."'
+		WHERE id='".$id."' ";
 		$conexion->query($sentencia) or die ("Error al actualizar datos".mysqli_error($conexion));
 	}
 ?>

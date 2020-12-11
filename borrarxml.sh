@@ -1,1 +1,1 @@
-rm e:/ruta donde tengas el archivo/nombrearchivo
+rm Z:/xml/terror.xml

@@ -12,12 +12,13 @@ session_start();
 		}
 		$nick=$_SESSION["nick_logueado"];
 	
-	ModificarProducto($_GET['id'], $_POST['Titulo'], $_POST['Genero'], $_POST['Ano'], $_POST['Plataforma'], $_POST['PEGI'], $_POST['Desarrollador'],$_POST['precio'] );
+	ModificarProducto($_GET['id'], $_POST['name'], $_POST['description'], $_POST['Genero'], $_POST['Ano'], $_POST['Plataforma'], $_POST['PEGI'],$_POST['Desarrollador'],$_POST['price'] );
 
-	function ModificarProducto($id, $Titulo,$Genero, $Ano,$Plataforma,$PEGI,$Desarrollador,$precio)
+	function ModificarProducto($id, $name,$description, $Genero,$Ano,$Plataforma,$PEGI,$Desarrollador,$price)
 	{
 		include 'a_conexion.php';
-		echo $sentencia="UPDATE mis_productos SET id='".$id."',Titulo='".$Titulo."',Genero='".$Genero."',Ano='".$Ano."',Plataforma='".$Plataforma."',PEGI='".$PEGI."',Desarrollador='".$Desarrollador."',precio='".$precio."'WHERE id='".$id."' ";
+		echo $sentencia="UPDATE mis_productos SET id='".$id."',name='".$name."',description='".$description."',Genero='".$Genero."',Ano='".$Ano."',Plataforma='".$Plataforma."',PEGI='".$PEGI."',Desarrollador='".$Desarrollador."',price='".$price."'
+		WHERE id='".$id."' ";
 		$conexion->query($sentencia) or die ("Error al actualizar datos".mysqli_error($conexion));
 	}
 ?>

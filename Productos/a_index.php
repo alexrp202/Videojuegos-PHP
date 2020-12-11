@@ -25,12 +25,12 @@ session_start();
 </head>
 <body>
 <div class="todo">
- 
-<img  src="./imagenes/1.jpg"class="d-block w-100" alt="..."width="400" height="400">
+
   
   <div id="contenido">
   	<table style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
   		<thead>
+        <th>Id.</th>
         <th>Titulo.</th>
         <th>Descripcion</th>
   			<th>Genero</th>
@@ -49,6 +49,7 @@ session_start();
         while($fila=$resultado->fetch_assoc())
         {
           echo "<tr>";
+            echo "<td>"; echo $fila['id']; echo "</td>";
             echo "<td>"; echo $fila['name']; echo "</td>";
             echo "<td>"; echo $fila['description']; echo "</td>";
             echo "<td>"; echo $fila['Genero']; echo "</td>";
@@ -69,7 +70,7 @@ session_start();
   </div>
   
 	<footer >
-  <a href="menu_admin.php">  <button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>Atras</button> 
+  <a href="../menu_admin.php">  <button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>Atras</button> 
 	</footer>
 
 </div>
