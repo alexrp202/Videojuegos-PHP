@@ -1,0 +1,1 @@
+rm e:/ruta donde tengas el archivo/nombrearchivo

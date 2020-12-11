@@ -1,0 +1,7 @@
+
+secure_file_priv               = ''
+
+SELECT * 
+INTO OUTFILE 'RUTA + NOMBRE ARCHIVO' 
+FROM videojuegos
+WHERE Genero LIKE 'Terror'
