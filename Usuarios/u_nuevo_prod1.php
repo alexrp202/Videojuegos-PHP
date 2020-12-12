@@ -23,12 +23,15 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Nuevo Usuarios</title>
 	<style type="text/css">
-		@import url("css/mycss.css");
-	</style>
-	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    @import url("css/mycss.css");
+  </style>
+  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<nav class="navbar navbar-light bg-light">
+
+</nav>
 	<div class="todo ">
 
 		<img src="./imagenes/1.jpg" class="d-block w-100"  width="400" height="400">
@@ -36,8 +39,7 @@ session_start();
 		<br>
 
 		<form action="u_nuevo_prod2.php" method="post" style="border-collapse: separate; border-spacing: 10px 5px;" class="p-4">
-		<label>Id </label>
-          <input type="text" disabled class="form-control" name="name" ><br>
+		
           
 
                     <div class="form-group" id="user-group">

@@ -23,7 +23,7 @@ header("Content-Type: text/html;charset=utf-8");
 
 		$name = $_POST["nick"];
 		$password = $_POST["password"];
-		
+		$contador=0;
 
 	$con = mysqli_connect("localhost","root","usbw","test");
 	
@@ -55,10 +55,11 @@ header("Content-Type: text/html;charset=utf-8");
 	
 	/////////////////
 
-	if (!strcmp($password2 , $password) == 0){
-			echo "Contraseña incorrecta";
+	if(!password_verify($password, $password2)) {
+		echo "contraseña INCORRECTA";
+
 	}
-	
+
 	else{
 		echo "Login OK";
 		$_SESSION["nick_logueado"]=$name;

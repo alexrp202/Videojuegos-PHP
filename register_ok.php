@@ -4,6 +4,7 @@ if (isset($_POST["nick"]))
 {
 	$name = $_POST["nick"];
 	$password = $_POST["password"];
+	$password_cifrada=password_hash($password, PASSWORD_DEFAULT);
 	$email = $_POST["email"];
 	$telefono = $_POST["telefono"];
 	$direccion = $_POST["direccion"];
@@ -34,7 +35,7 @@ if (isset($_POST["nick"]))
 	if ($datos['cuantos'] == 0)
 	{
 		$instruccion = "INSERT INTO clientes(id,name,password,email,phone,address)
-		VALUES (NULL ,'$name','$password','$email','$telefono','$direccion');";
+		VALUES (NULL ,'$name','$password_cifrada','$email','$telefono','$direccion');";
 		$res = mysqli_query($con, $instruccion);
 		if (!$res)
 		{
@@ -45,12 +46,18 @@ if (isset($_POST["nick"]))
 			echo "Usuario creado";
 			//me lleva al login para que pruebe mi contraseña
 			echo "<script>alert('Usuario creado correctamente');</script>";
-			include_once("alta.html");
+			include_once("login.html");
 		}
 	}
 	else
-	{
-		echo "El nick $nick no está disponible";
+	{?>
+	
+			<script type="text/javascript">
+			alert("Este nick no está disponible");
+			window.location.href='register.html';
+			</script>
+
+		<?php
 	}
 
 }

@@ -5,7 +5,5 @@
 	{
 		printf("Fallo la conexion");
 	}
-	else {
-		printf("Estas conectado");
-	}
+	
 ?>

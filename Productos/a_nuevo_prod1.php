@@ -27,18 +27,18 @@ session_start();
 	<style type="text/css">
 		@import url("css/mycss.css");
 	</style>
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<div class="todo ">
 
-		<img src="./imagenes/1.jpg" class="d-block w-100"  width="400" height="400">
+
 		<h2> Nuevo Videojuego </h2>
 		<br>
 
 		<form action="a_nuevo_prod2.php" method="post" style="border-collapse: separate; border-spacing: 10px 5px;" class="p-4">
-		ID: <input type="text" class="form-control" name="id" placeholder="ID" disabled /><br>	
+		
 		Titulo: <input type="text" class="form-control" name="name" placeholder="Introducir Titulo" /><br>
 			<div class="form-group">
 				<label for="Descripcion">Descripcion</label>
