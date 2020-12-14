@@ -55,12 +55,7 @@ header("Content-Type: text/html;charset=utf-8");
 	
 	/////////////////
 
-	if(!password_verify($password, $password2)) {
-		echo "contraseña INCORRECTA";
-
-	}
-
-	else{
+	if(password_verify($password, $password2)) {
 		echo "Login OK";
 		$_SESSION["nick_logueado"]=$name;
 		?> 
@@ -80,17 +75,33 @@ header("Content-Type: text/html;charset=utf-8");
 	window.location.href='menu_usuario.php';
 
 		</script>
-		<?php	
-		}?>
+		<?php
+	}
+}
+
+	else{
+		?>
+		<script type="text/javascript">
+		alert("Contraseña incorrecta");
+		window.location.href='login.html';
+		</script>	
+		<?php
+		}
+}
+
+	?>
+
+	
 
 		
 		<?php
 		
 		
 		$logueado=1;
-	}
-	}
 	
+	
+
+
 
 
 
