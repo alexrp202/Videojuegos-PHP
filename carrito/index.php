@@ -46,7 +46,7 @@ include 'Configuracion.php';
 
 <div class="panel-body container">
     <h1>Mis Productos</h1>
-    <a href="VerCarta.php" class="cart-link" title="Ver Carta"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+   
     <div id="products" class="row list-group">
     <div class="form-group container-fluid">
     <label for="exampleFormControlSelect1">Filtrar por:</label>
@@ -64,7 +64,7 @@ include 'Configuracion.php';
 		<option value='6'>Videojuegos de Estrategia</option>
         </select>
         <br>
-    <input type="submit" class="btn btn-success"></input>
+    <input type="submit" value="Filtrar" class="btn btn-success"></input>
     </form>
     
     <br>
@@ -147,9 +147,34 @@ include 'Configuracion.php';
         <?php } ?>
     </div>
         </div>
- <div class="panel-footer">Play+</div>
- </div><!--Panek cierra-->
+       
+
+        <?php
+       
+		if($nick=="admin"){?>
+    <div class="panel-footer">  <a href="../menu_admin.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
+		<?php
+		}
+		else{?>
+
+<div class="panel-footer">  <a href="../menu_usuario.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
+		<?php
+	}?>
+
+
+
+
+
+
+
+
+
+
+
+
  
+ </div><!--Panek cierra-->
+
 </div>
 </body>
 </html>

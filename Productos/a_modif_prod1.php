@@ -39,38 +39,63 @@ function ConsultarProducto($id_prod)
 <html>
 
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modificar Producto</title>
-  <style type="text/css">
-    @import url("css/mycss.css");
-  </style>
-  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+  <title>Header</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
 <body>
-  <div class="todo">
+  <div class="header-nightsky">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img style="width: 50%;" src="../imagenes/gitfuck.png" alt=""></a>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../productos/a_index.php">Gestionar Productos</a></li>
+            <li><a href="../usuarios/u_index.php">Gestionar Usuarios</a></li>
+            <li><a href="../carrito/index.php">Mostrar Carrito</a></li>
+            <li><a href="../xml/menuxml.php">XML</a></li>
+            <li><a href="../excel/menuexcel.php">CSV</a></li>
 
 
-    <div id="contenido">
-      <div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
-        <span>
-          <h1>Modificar Producto</h1>
-        </span>
-        <br>
+
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="hero">
+      <h1>Modificar Usuario</h1>
+
+      <br><br>
+
+      <div id="contenido">
+        <div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
+         
+          <br>
         <form action="a_modif_prod2.php?id=<?php echo $_GET['id']?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
 
-        <label>Id </label>
+        <h3>Id</h3>
           <input type="text" disabled class="form-control" name="name"  value="<?php echo $consulta[0] ?>"><br>
-          <label>Nombre Videojuego </label>
+          <h3>Titulo</h3>
           <input type="text" class="form-control" name="name" placeholder="Introducir Nombre" value="<?php echo $consulta[1] ?>"><br>
 
           <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descripcion</label>
+          <h3>Descripcion</h3>
          <textarea class="form-control" name="description" id="description" id="exampleFormControlTextarea1" rows="3"value="<?php echo $consulta[2] ?>"></textarea>
          </div>
 
-          <label for="Genero">Genero</label>
+         <h3>Genero</h3>
           <select class="form-control" name="Genero" value="<?php echo $consulta[3] ?>"><br>
             <option>Terror</option>
             <option>Accion</option>
@@ -79,12 +104,12 @@ function ConsultarProducto($id_prod)
             <option>Estrategia</option>
           </select>
 
-          Ano: <input type="text" class="form-control" name="Ano" placeholder="Introducir Año" value="<?php echo $consulta[4] ?>"><br>
-          Plataforma: <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" value="<?php echo $consulta[5] ?>"><br>
-          Pegi: <input type="text" class="form-control" name="PEGI" placeholder="Introducir Pegi" value="<?php echo $consulta[6] ?>"><br>
-          Desarrollador: <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" value="<?php echo $consulta[7] ?>">
-          Precio: <input type="number" class="form-control" name="price" placeholder="Introducir precio"  value="<?php echo $consulta[8] ?>" /><br>
-          <button type="submit" class="btn btn-success">Guardar</button>
+          <h3>Año</h3> <input type="text" class="form-control" name="Ano" placeholder="Introducir Año" value="<?php echo $consulta[4] ?>"><br>
+          <h3>Plataforma</h3> <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" value="<?php echo $consulta[5] ?>"><br>
+          <h3>PEGI</h3> <input type="text" class="form-control" name="PEGI" placeholder="Introducir Pegi" value="<?php echo $consulta[6] ?>"><br>
+          <h3>Desarrollador</h3> <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" value="<?php echo $consulta[7] ?>">
+          <h3>Precio</h3> <input type="number" class="form-control" name="price" placeholder="Introducir precio"  value="<?php echo $consulta[8] ?>" /><br>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
       </div>
     </div>

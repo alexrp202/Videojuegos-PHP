@@ -34,22 +34,25 @@ function ConsultarProducto($nick)
 <html>
 
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
-  <title>Mi Perfil</title>
-  <style type="text/css">
-    @import url("css/mycss.css");
-  </style>
-  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <title>Header</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
 <body>
-  <div class="todo">
-
-   
-
-    <div id="contenido">
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img style="width: 50%;" src="../imagenes/gitfuck.png" alt=""></a>
+             
+        </nav>
+        <div class="hero">
+            <br><br>
+  
+  <div class="container-fluid" id="contenido">
       <div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
         <span>
           <h1>Mi perfil</h1>
@@ -79,7 +82,7 @@ function ConsultarProducto($nick)
 					<div class="form-group" id="direccion-group">
                         <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[5] ?>"> 
           </div>
-          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
       </div>
     </div>

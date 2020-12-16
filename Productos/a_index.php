@@ -14,67 +14,99 @@ session_start();
 		?>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ejemplo de interaccion con DB</title>
-<style type="text/css">
-@import url("css/mycss.css");
-</style>
-<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+    <title>Header</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
+
 <body>
-<div class="todo">
-
-  
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img style="width: 50%;" src="../imagenes/gitfuck.png" alt=""></a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="../productos/a_index.php">Gestionar Productos</a></li>
+                        <li><a href="../usuarios/u_index.php">Gestionar Usuarios</a></li>
+                        <li><a href="../carrito/index.php">Mostrar Carrito</a></li>
+                        <li><a href="../xml/menuxml.php">XML</a></li>
+                        <li><a href="../excel/menuexcel.php">CSV</a></li>
+                       
+                       
+                        
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1>Gestionar productos</h1>
+            <a href="a_nuevo_prod1.php"> <button  type="button" class="btn btn-primary w-auto">Nuevo Producto</button> </a>
+            <br><br>
   <div id="contenido">
-  	<table style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
-  		<thead>
-        <th>Id.</th>
-        <th>Titulo.</th>
-        <th>Descripcion</th>
-  			<th>Genero</th>
-  			<th>Ano</th>
-        <th>Platafotma</th>
-        <th>Pegi</th>
-        <th>Desarrollador</th>
-        <th>Precio</th>
-  			<th> <a href="a_nuevo_prod1.php"> <button type="button" class="btn btn-info">Nuevo</button> </a> </th>
-  		</thead>
+    <table  style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
+       <thead>
 
-      <?php
-        include "a_conexion.php";
-        $sentecia="SELECT * FROM mis_productos";
-        $resultado= $conexion->query($sentecia) or die (mysqli_error($conexion));
-        while($fila=$resultado->fetch_assoc())
-        {
-          echo "<tr>";
-            echo "<td>"; echo $fila['id']; echo "</td>";
-            echo "<td>"; echo $fila['name']; echo "</td>";
-            echo "<td>"; echo $fila['description']; echo "</td>";
-            echo "<td>"; echo $fila['Genero']; echo "</td>";
-            echo "<td>"; echo $fila['Ano']; echo "</td>";
-            echo "<td>"; echo $fila['Plataforma']; echo "</td>";
-            echo "<td>"; echo $fila['PEGI']; echo "</td>";
-            echo "<td>"; echo $fila['Desarrollador']; echo "</td>";
-            echo "<td>"; echo $fila['price']; echo " EUR";echo "</td>";
-            echo "<td><a href='a_modif_prod1.php?id=".$fila['id']."'> <button type='button' class='btn btn-success'><span class='glyphicon glyphicon-pencil'></span>Modificar</button> </a></td>";
-            echo " <td><a href='a_eliminar_prod.php?id=".$fila['id']."'> <button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>Eliminar</button> </a></td>";
-          echo "</tr>";
-        }
-      ?>
+      <th>Id.</th>
+      <th>Titulo.</th>
+      <th>Descripcion</th>
+      <th>Genero</th>
+      <th>Ano</th>
+      <th>Platafotma</th>
+      <th>Pegi</th>
+      <th>Desarrollador</th>
+      <th>Precio</th>
 
-     
-  		
-  	</table>
-  </div>
-  
-	<footer >
-  <a href="../menu_admin.php">  <button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>Atras</button> 
+        </thead>
+
+    <?php
+      include "a_conexion.php";
+      $sentecia="SELECT * FROM mis_productos";
+      $resultado= $conexion->query($sentecia) or die (mysqli_error($conexion));
+      while($fila=$resultado->fetch_assoc())
+      {
+        echo "<tr>";
+          echo "<td>"; echo $fila['id']; echo "</td>";
+          echo "<td>"; echo $fila['name']; echo "</td>";
+          echo "<td>"; echo $fila['description']; echo "</td>";
+          echo "<td>"; echo $fila['Genero']; echo "</td>";
+          echo "<td>"; echo $fila['Ano']; echo "</td>";
+          echo "<td>"; echo $fila['Plataforma']; echo "</td>";
+          echo "<td>"; echo $fila['PEGI']; echo "</td>";
+          echo "<td>"; echo $fila['Desarrollador']; echo "</td>";
+          echo "<td>"; echo $fila['price']; echo " EUR";echo "</td>";
+          echo "<td><a href='a_modif_prod1.php?id=".$fila['id']."'> <button type='button'  class='btn btn-primary'><class   class='glyphicon glyphicon-pencil'></class></button> </a></td>";
+          echo " <td><a href='a_eliminar_prod.php?id=".$fila['id']."'> <button type='button' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></button> </a></td>";
+        echo "</tr>";
+      }
+    ?>
+
+   
+        
+    </table>
+
+      
+    <footer >
+  <a href="../menu_admin.php">  <button type='button' class='btn btn-primary'>Atras</button> 
 	</footer>
-
-</div>
-
-
+            
+        </div>
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+
 </html>

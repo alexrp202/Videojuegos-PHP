@@ -102,7 +102,18 @@ $cart = new Cart;
     </table>
     
     </div>
- <div class="panel-footer">BaulPHP</div>
+ 
+    <?php
+       
+       if($nick=="admin"){?>
+   <div class="panel-footer">  <a href="../menu_admin.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
+       <?php
+       }
+       else{?>
+
+<div class="panel-footer">  <a href="../menu_usuario.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
+       <?php
+   }?>
  </div><!--Panek cierra-->
  
 </div>
