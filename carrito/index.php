@@ -18,54 +18,82 @@ session_start();
         $generos="";
 include 'Configuracion.php';
 ?>
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <title>Catalogo</title>
+    <title>Header</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-    .container{padding: 20px;}
-    .cart-link{width: 100%;text-align: right;display: block;font-size: 22px;}
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
-</head>
+
 <body>
-<div class="container">
-<div class="panel panel-default">
-<div class="panel-heading"> 
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img style="width: 50%;" src="../imagenes/gitfuck.png" alt=""></a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.php">Productos</a></li>
+                        <li><a href="VerCarta.php">Ver carrito</a></li>
+                        <li><a href="Pagos.php">Pagos</a></li>
+                       
 
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="index.php">Inicio</a></li>
-  <li role="presentation"><a href="VerCarta.php">Ver Carta</a></li>
-  <li role="presentation"><a href="Pagos.php">Pagos</a></li>
-</ul>
-</div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero">
+          
+  <div id="contenido">    
 
-<div class="panel-body container">
-    <h1>Mis Productos</h1>
-   
+  <div class="container">
+
+
+<h1>Productos</h1>
+   <div class="container">
     <div id="products" class="row list-group">
     <div class="form-group container-fluid">
-    <label for="exampleFormControlSelect1">Filtrar por:</label>
-    
-    <form  method="get">
+    <table>
+  <thead>
+    <tr>
+      <th scope="col">Filtrar por:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><form  method="get">
    
-    <select class="form-control " style="width: auto;"  name='seleccion'>
-        <option selected disabled >Selecciona una</option>
-		<option value='0'>Id</option>
-		<option value='1'>Precio</option>
-		<option value='2'>Videojuegos de Terror</option>
-		<option value='3'>Videojuegos de Accion</option>
-		<option value='4'>Videojuegos de Aventura</option>
-		<option value='5'>Videojuegos de Puzzles</option>
-		<option value='6'>Videojuegos de Estrategia</option>
-        </select>
-        <br>
-    <input type="submit" value="Filtrar" class="btn btn-success"></input>
-    </form>
+   <select class="form-control " style="width: auto;"  name='seleccion'>
+       <option selected disabled >Selecciona una</option>
+       <option value='0'>Id</option>
+       <option value='1'>Precio</option>
+       <option value='2'>Videojuegos de Terror</option>
+       <option value='3'>Videojuegos de Accion</option>
+       <option value='4'>Videojuegos de Aventura</option>
+       <option value='5'>Videojuegos de Puzzles</option>
+       <option value='6'>Videojuegos de Estrategia</option>
+       </select>
+       <br>
+   <input type="submit" value="Filtrar" class="btn btn-success"></input>
+   </form></th>
+     
+  </tbody>
+</table>
+
+    
+    
     
     <br>
     <?php 
@@ -106,7 +134,8 @@ include 'Configuracion.php';
     
     
     ?>
-    Filtrado por:<b> <?php echo $filtrar; ?></b>
+    <h4>Filtrado por:<b> <?php echo $filtrar; ?></b></h4> 
+  </div>
   </div>
         <?php
         //get rows query
@@ -115,21 +144,22 @@ include 'Configuracion.php';
         if($query->num_rows > 0){ 
             while($row = $query->fetch_assoc()){
         ?>
+        <div class="container">
         <div class="item col-lg-4">
-            <div class="thumbnail">
+            <div >
                 <div class="caption">
-                    <h4 class="list-group-item-heading"><?php echo $row["name"]; ?></h4>
-                    <p class="list-group-item-text"><br><?php echo $row["description"]; ?></p>
+                    <h2 class="list-group-item-heading">Titulo: <?php echo $row["name"]; ?></h2>
+                    <h3 class="list-group-item-text">Descripcion:<br><?php echo $row["description"]; ?></h3>
                     <br>
-                    <p class="list-group-item-text">Genero: <?php echo $row["Genero"]; ?></p>
+                    <h3 class="list-group-item-text">Genero: <?php echo $row["Genero"]; ?></h3>
                     <br>
-                    <p class="list-group-item-text">Año: <?php echo $row["Ano"]; ?></p>
+                    <h3 class="list-group-item-text">Año: <?php echo $row["Ano"]; ?></h3>
                     <br>
-                    <p class="list-group-item-text">Plataforma: <?php echo $row["Plataforma"]; ?></p>
+                    <h3 class="list-group-item-text">Plataforma: <?php echo $row["Plataforma"]; ?></h3>
                     <br>
-                    <p class="list-group-item-text">PEGI: <?php echo $row["PEGI"]; ?></p>
+                    <h3 class="list-group-item-text">PEGI: <?php echo $row["PEGI"]; ?></h3>
                     <br>
-                    <p class="list-group-item-text">Desarrollador: <?php echo $row["Desarrollador"]; ?></p>
+                    <h3 class="list-group-item-text">Desarrollador: <?php echo $row["Desarrollador"]; ?></h3>
                     <br>
                     <div class="row">
                         <div class="col-md-6">
@@ -147,17 +177,17 @@ include 'Configuracion.php';
         <?php } ?>
     </div>
         </div>
-       
+       </div>
 
         <?php
        
 		if($nick=="admin"){?>
-    <div class="panel-footer">  <a href="../menu_admin.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
+      <a href="../menu_admin.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </>
 		<?php
 		}
 		else{?>
 
-<div class="panel-footer">  <a href="../menu_usuario.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
+  <a href="../menu_usuario.php">  <button type='button' class='btn btn-primary'>Volver al menu principal</button> </div>
 		<?php
 	}?>
 
