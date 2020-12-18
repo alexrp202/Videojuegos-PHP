@@ -1,69 +1,45 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <?php
 
-session_start();
-		
-		if(!isset($_SESSION["nick_logueado"])){
-			?>
-			<script type="text/javascript">
-			alert("No estas logueado");
-			window.location.href='./login.html';
-				</script>
-				<?php	
-		}
-		$nick=$_SESSION["nick_logueado"];
+$conexion= new mysqli("localhost", "root", "usbw", "test");
+$query = $conexion->query("SELECT * FROM mis_productos WHERE Genero LIKE 'Estrategia'");		
+$xml = new XMLWriter();
+$xml->openMemory();
+$xml->setIndent(true);
+$xml->setIndentString('	'); 
+$xml->startDocument('1.0', 'UTF-8');
+ 
+$xml->startElement("Tienda"); //elemento TIENDA
+
+         $xml->startElement("Estrategia"); //elemento responsable
+		   
+		 
+		 while($row = $query->fetch_assoc()){
+            $xml->startElement("Producto"); //elemento Producto;
+			$xml->writeElement("Id",$row["id"]);
+			$xml->writeElement("Titulo", $row["name"]);
+			$xml->writeElement("Descripcion", $row["description"]);
+			$xml->writeElement("Genero", $row["Genero"]);
+			$xml->writeElement("Año", $row["Ano"]);
+			$xml->writeElement("Plataforma", $row["Plataforma"]);
+			$xml->writeElement("PEGI", $row["PEGI"]);
+			$xml->writeElement("Desarrollador", $row["Desarrollador"]);
+			$xml->writeElement("Precio", $row["price"]);
+            $xml->endElement(); //fin Producto
+		 }
+         $xml->endElement(); //fin clase
+ 
+
+$xml->endElement(); //fin colegio
 	
-	// eliminar();
-	generar( );
-
-	// function eliminar(){
-
-	// 	print exec("sh Z:/xml/borrarxml.sh")."\n";
-	// 	$contents = file_get_contents('Z:/xml/borrarxml.sh');
-	// 	echo shell_exec($contents);
-		
-	// }
-	function generar()
-	{
-      
-		include 'a_conexion.php';
-		 $sentencia="SELECT * 
-						INTO OUTFILE 'Z:/xml/estrategia.xml'
-						FROM mis_productos
-						WHERE Genero LIKE 'Estrategia'";
-		$conexion->query($sentencia) or die ("Error al actualizar datos".mysqli_error($conexion));
-	}
+$content = $xml->outputMemory();
+ob_end_clean();
+ob_start();
+header('Content-Type: application/xml; charset=UTF-8');
+header('Content-Encoding: UTF-8');
+header("Content-Disposition: attachment;filename=Estrategia.xml");
+header('Expires: 0');
+header('Pragma: cache');
+header('Cache-Control: private');
+echo $content;
 ?>
-
-
-<script type="text/javascript">
-  let timerInterval
-Swal.fire({
-  title: 'Exportando videojuegos de estrategia a archivo xml',
-  timer: 2000,
-  timerProgressBar: true,
-  willOpen: () => {
-    Swal.showLoading()
-    timerInterval = setInterval(() => {
-      const content = Swal.getContent()
-      if (content) {
-        const b = content.querySelector('b')
-        if (b) {
-          b.textContent = Swal.getTimerLeft()
-        }
-      }
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-    window.location.href='./menuxml.php';
-  }
-})
-	
-	
-</script>

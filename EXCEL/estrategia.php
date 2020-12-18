@@ -1,73 +1,44 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <?php
 
-session_start();
-		
-		if(!isset($_SESSION["nick_logueado"])){
-			?>
-			<script type="text/javascript">
-			alert("No estas logueado");
-			window.location.href='./login.html';
-				</script>
-				<?php	
-		}
-		$nick=$_SESSION["nick_logueado"];
-	
-	// eliminar();
-	generar( );
 
-	// function eliminar(){
-
-	// 	print exec("sh Z:/xml/borrarxml.sh")."\n";
-	// 	$contents = file_get_contents('Z:/xml/borrarxml.sh');
-	// 	echo shell_exec($contents);
-		
-	// }
-	function generar()
-	{
-      
-		include 'a_conexion.php';
-		 $sentencia="SELECT *
-		 FROM mis_productos
-		 WHERE Genero LIKE 'Estrategia'
-		 INTO OUTFILE 'Z:/excel/estrategia.csv'
-		 FIELDS TERMINATED BY ';'
-		 OPTIONALLY ENCLOSED BY '\"'
-		 LINES TERMINATED BY '\r\n'
-		 ";
-		$conexion->query($sentencia) or die ("Error al actualizar datos".mysqli_error($conexion));
-	}
-?>
+// filename for export
+$csv_filename = 'Estrategia '.date('Y-m-d').'.csv';
+// database variables
 
 
-<script type="text/javascript">
-  let timerInterval
-Swal.fire({
-  title: 'Exportando videojuegos de estrategia a archivo csv',
-  timer: 2000,
-  timerProgressBar: true,
-  willOpen: () => {
-    Swal.showLoading()
-    timerInterval = setInterval(() => {
-      const content = Swal.getContent()
-      if (content) {
-        const b = content.querySelector('b')
-        if (b) {
-          b.textContent = Swal.getTimerLeft()
-        }
-      }
-    }, 100)
-  },
-  willClose: () => {
-    clearInterval(timerInterval)
-  }
-}).then((result) => {
-  /* Read more about handling dismissals below */
-  if (result.dismiss === Swal.DismissReason.timer) {
-    console.log('I was closed by the timer')
-    window.location.href='./menuexcel.php';
-  }
-})
-	
-	
-</script>
+
+$conn= new mysqli("localhost", "root", "usbw", "test");
+if (mysqli_connect_errno()) {
+    die("Failed to connect to MySQL: " . mysqli_connect_error());
+}
+
+// create empty variable to be filled with export data
+$csv_export = '';
+
+// query to get data from database
+$query = mysqli_query($conn, "SELECT * FROM mis_productos where Genero LIKE 'Estrategia'");
+$field = mysqli_field_count($conn);
+
+// create line with field names
+for($i = 0; $i < $field; $i++) {
+    $csv_export.= mysqli_fetch_field_direct($query, $i)->name.';';
+}
+
+// newline (seems to work both on Linux & Windows servers)
+$csv_export.= '
+';
+
+// loop through database query and fill export variable
+while($row = mysqli_fetch_array($query)) {
+    // create line with field values
+    for($i = 0; $i < $field; $i++) {
+        $csv_export.= '"'.$row[mysqli_fetch_field_direct($query, $i)->name].'";';
+    }
+    $csv_export.= '
+';
+}
+
+// Export the data and prompt a csv file for download
+header("Content-type: text/x-csv");
+header("Content-Disposition: attachment; filename=".$csv_filename."");
+echo($csv_export);

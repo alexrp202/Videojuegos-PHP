@@ -29,6 +29,9 @@ include 'Configuracion.php';
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -145,11 +148,16 @@ include 'Configuracion.php';
             while($row = $query->fetch_assoc()){
         ?>
         <div class="container">
-        <div class="item col-lg-4">
+
+   
+
+
+
+        <div style="border: 100px;" class="item col-lg-4">
             <div >
                 <div class="caption">
                     <h2 class="list-group-item-heading">Titulo: <?php echo $row["name"]; ?></h2>
-                    <h3 class="list-group-item-text">Descripcion:<br><?php echo $row["description"]; ?></h3>
+                   
                     <br>
                     <h3 class="list-group-item-text">Genero: <?php echo $row["Genero"]; ?></h3>
                     <br>
@@ -165,6 +173,31 @@ include 'Configuracion.php';
                         <div class="col-md-6">
                             <p class="lead"><?php echo '€'.$row["price"].' EUR'; ?></p>
                         </div>
+                        <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div style="color: black;" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"> <?php echo $row["name"]?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
                         <div class="col-md-6">
                             <a class="btn btn-success" href="AccionCarta.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar a la Carta</a>
                         </div>
