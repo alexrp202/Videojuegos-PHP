@@ -59,6 +59,7 @@ session_start();
     <table  style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
        <thead>
 
+      <th>Imagen</th>
       <th>Id.</th>
       <th>Titulo.</th>
       <th>Descripcion</th>
@@ -68,7 +69,6 @@ session_start();
       <th>Pegi</th>
       <th>Desarrollador</th>
       <th>Precio</th>
-
         </thead>
 
     <?php
@@ -77,7 +77,37 @@ session_start();
       $resultado= $conexion->query($sentecia) or die (mysqli_error($conexion));
       while($fila=$resultado->fetch_assoc())
       {
-        echo "<tr>";
+     $id = $fila['id'];
+   
+        echo "<tr>";?>
+
+<td><!-- Button trigger modal -->
+ <a href="ver.php?id=<?php echo $id ?>">  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
+  Mostrar caratula
+</button></a>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      
+  
+      </div>
+     
+    </div>
+  </div>
+</div></td>
+ 
+    <!-- <?php echo $fila["name"]?>
+    <img src='ver.php?id=<?php echo $fila['id'] ?>' alt='Img blob desde MySQL' width="400" />  -->
+        <?php
           echo "<td>"; echo $fila['id']; echo "</td>";
           echo "<td>"; echo $fila['name']; echo "</td>";
           echo "<td>"; echo $fila['description']; echo "</td>";

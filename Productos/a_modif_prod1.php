@@ -105,8 +105,29 @@ function ConsultarProducto($id_prod)
           </select>
 
           <h3>Año</h3> <input type="text" class="form-control" name="Ano" placeholder="Introducir Año" value="<?php echo $consulta[4] ?>"><br>
-          <h3>Plataforma</h3> <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" value="<?php echo $consulta[5] ?>"><br>
-          <h3>PEGI</h3> <input type="text" class="form-control" name="PEGI" placeholder="Introducir Pegi" value="<?php echo $consulta[6] ?>"><br>
+
+          <h3>Plataforma</h3>
+            <select class="form-control" name="Plataforma"  value="<?php echo $consulta[5] ?>">
+              <option>PC</option>
+              <option>XBOX ONE</option>
+              <option>XBOX SERIES X</option>
+              <option>PLAY 4</option>
+              <option>PLAY 5</option>
+              <option>NINTENDO SWITCH</option>
+            </select>
+            <br>
+
+          <h3>PEGI</h3>
+            <select class="form-control" name="PEGI" value="<?php echo $consulta[6] ?>">
+              <option>3</option>
+              <option>7</option>
+              <option>12</option>
+              <option>16</option>
+              <option>18</option>
+            </select>
+          <br>
+
+
           <h3>Desarrollador</h3> <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" value="<?php echo $consulta[7] ?>">
           <h3>Precio</h3> <input type="number" class="form-control" name="price" placeholder="Introducir precio"  value="<?php echo $consulta[8] ?>" /><br>
           <button type="submit" class="btn btn-primary">Guardar</button>

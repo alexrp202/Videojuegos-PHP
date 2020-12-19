@@ -2,19 +2,19 @@
 include "a_conexion.php";
 
 
-	
+
 session_start();
-		
-		if(!isset($_SESSION["nick_logueado"])){
-			?>
-			<script type="text/javascript">
-			alert("No estas logueado");
-			window.location.href='./login.html';
-				</script>
-				<?php	
-		}
-		$nick=$_SESSION["nick_logueado"];
-		
+
+if (!isset($_SESSION["nick_logueado"])) {
+?>
+  <script type="text/javascript">
+    alert("No estas logueado");
+    window.location.href = './login.html';
+  </script>
+<?php
+}
+$nick = $_SESSION["nick_logueado"];
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,35 +62,57 @@ session_start();
 
       <div id="contenido">
         <div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
-         
+
           <br>
-		  <form action="a_nuevo_prod2.php" method="post" style="border-collapse: separate; border-spacing: 10px 5px;" class="p-4">
+          <form action="a_nuevo_prod2.php" method="post" style="border-collapse: separate; border-spacing: 10px 5px;" class="p-4" enctype="multipart/form-data">
 
-		  <h3>Titulo</h3> <input type="text" class="form-control" name="name" placeholder="Introducir Titulo" /><br>
-			<div class="form-group">
-			<h3>Descripcion</h3>
-				<textarea class="form-control" name="description" id="description" rows="3"></textarea>
-			</div>
+            <h3>Titulo</h3> <input type="text" class="form-control" name="name" placeholder="Introducir Titulo" /><br>
+            <div class="form-group">
+              <h3>Descripcion</h3>
+              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            </div>
 
-			<h3>Genero</h3>
-			<select class="form-control" name="Genero">
-				<option>Terror</option>
-				<option>Accion</option>
-				<option>Aventura</option>
-				<option>Puzzle</option>
-				<option>Estrategia</option>
-			</select>
-			<br>
-			<h3>Año</h3> <input type="number" class="form-control" name="Ano" placeholder="Introducir Año"><br>
-			<h3>Plataforma</h3> <input type="text" class="form-control" name="Plataforma" placeholder="Introducir Plataforma" /><br>
-			<h3>PEGI</h3> <input type="number" class="form-control" name="PEGI" placeholder="Introducir Pegi" /><br>
-			<h3>Desarrollador</h3> <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" /><br>
-			<h3>Precio</h3> <input type="number" class="form-control" name="precio" placeholder="Introducir precio" /><br>
-			<br>
-			<input class='btn btn-primary' type="submit" value="Guardar" />
-		</form>
+            <h3>Genero</h3>
+            <select class="form-control" name="Genero">
+              <option>Terror</option>
+              <option>Accion</option>
+              <option>Aventura</option>
+              <option>Puzzle</option>
+              <option>Estrategia</option>
+            </select>
+            <br>
+            <h3>Año</h3> <input type="number" class="form-control" name="Ano" placeholder="Introducir Año"><br>
+
+            <h3>Plataforma</h3>
+            <select class="form-control" name="Plataforma">
+              <option>PC</option>
+              <option>XBOX ONE</option>
+              <option>XBOX SERIES X</option>
+              <option>PLAY 4</option>
+              <option>PLAY 5</option>
+              <option>NINTENDO SWITCH</option>
+            </select>
+            <br>
+
+            <h3>PEGI</h3>
+            <select class="form-control" name="PEGI">
+              <option>3</option>
+              <option>7</option>
+              <option>12</option>
+              <option>16</option>
+              <option>18</option>
+            </select>
+          <br>
+        
+            <h3>Desarrollador</h3> <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" /><br>
+            <h3>Precio</h3> <input type="number" class="form-control" name="precio" placeholder="Introducir precio" /><br>
+            <h3>Imagen</h3> <input type="file" class="form-control" id="image" name="image" multiple>
+            <br>
+            <input class='btn btn-primary' type="submit" value="Guardar" />
+          </form>
+        </div>
       </div>
     </div>
-  </div>
 </body>
+
 </html>

@@ -21,13 +21,15 @@ $Plataforma=$_POST["Plataforma"];
 $PEGI=$_POST["PEGI"]; 
 $Desarrollador=$_POST["Desarrollador"];
 $precio=$_POST["precio"];
+$image = $_FILES['image']['tmp_name'];
+$imgContenido = addslashes(file_get_contents($image));
 
-	NuevoVideojuego($name,$description,$Genero,$Ano,$Plataforma,$PEGI,$Desarrollador,$precio);
+	NuevoVideojuego($name,$description,$Genero,$Ano,$Plataforma,$PEGI,$Desarrollador,$precio,$imgContenido);
 	
-	function NuevoVideojuego($name,$description,$Genero,$Ano,$Plataforma,$PEGI,$Desarrollador,$precio)
+	function NuevoVideojuego($name,$description,$Genero,$Ano,$Plataforma,$PEGI,$Desarrollador,$precio,$imgContenido)
 	{
 		include 'a_conexion.php';
-		$sentencia= "insert into mis_productos (id,name,description,Genero,Ano,Plataforma,PEGI,Desarrollador,price) values(null,'$name','$description','$Genero','$Ano','$Plataforma','$PEGI','$Desarrollador','$precio')";
+		$sentencia= "insert into mis_productos (id,name,description,Genero,Ano,Plataforma,PEGI,Desarrollador,price,imagenes) values(null,'$name','$description','$Genero','$Ano','$Plataforma','$PEGI','$Desarrollador','$precio','$imgContenido')";
 		$conexion->query($sentencia) or die ("Error al ingresar los datos".mysqli_error($conexion));
 	}
 ?>
