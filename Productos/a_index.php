@@ -22,6 +22,9 @@ session_start();
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -80,33 +83,48 @@ session_start();
      $id = $fila['id'];
    
         echo "<tr>";?>
-
-<td><!-- Button trigger modal -->
- <a href="ver.php?id=<?php echo $id ?>">  <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
-  Mostrar caratula
-</button></a>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      
-  
-      </div>
-     
-    </div>
-  </div>
-</div></td>
+ <!-- Desencadenar el modal con un botón -->
  
-    <!-- <?php echo $fila["name"]?>
-    <img src='ver.php?id=<?php echo $fila['id'] ?>' alt='Img blob desde MySQL' width="400" />  -->
+    <td>
+ <button type="button" class="btn btn-warning openBtn">Mostrar Caratula</button>
+    <br><br>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+            <!-- Modal contenido-->
+            <div class="modal-content">
+                
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    
+     
+     </div>
+
+ </div><!--Panel cierra-->
+  
+</div>
+</td>
+
+<script>
+
+$('.openBtn').on('click',function(){
+    $('.modal-body').load('CargarContenido.php?id=<?php echo $fila['id'] ?>',function(){
+        $('#myModal').modal({show:true});
+    });
+});
+</script>
+
+ 
+
         <?php
           echo "<td>"; echo $fila['id']; echo "</td>";
           echo "<td>"; echo $fila['name']; echo "</td>";
@@ -135,8 +153,8 @@ session_start();
         </div>
     </div>
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 </body>
+
 
 </html>

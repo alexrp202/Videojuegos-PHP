@@ -30,7 +30,8 @@ function ConsultarProducto($id_prod)
     $fila['Plataforma'],
     $fila['PEGI'],
     $fila['Desarrollador'],
-    $fila['price']
+    $fila['price'],
+    $fila['Imagenes']
    
   ];
 }
@@ -83,7 +84,7 @@ function ConsultarProducto($id_prod)
         <div style="margin: auto; width: 800px; border-collapse: separate; border-spacing: 10px 5px;">
          
           <br>
-        <form action="a_modif_prod2.php?id=<?php echo $_GET['id']?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
+        <form action="a_modif_prod2.php?id=<?php echo $_GET['id']?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;" enctype="multipart/form-data">
 
         <h3>Id</h3>
           <input type="text" disabled class="form-control" name="name"  value="<?php echo $consulta[0] ?>"><br>
@@ -130,6 +131,7 @@ function ConsultarProducto($id_prod)
 
           <h3>Desarrollador</h3> <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" value="<?php echo $consulta[7] ?>">
           <h3>Precio</h3> <input type="number" class="form-control" name="price" placeholder="Introducir precio"  value="<?php echo $consulta[8] ?>" /><br>
+          <h3>Imagen</h3> <input type="file" class="form-control" name="image" placeholder="Introducir precio"  value="<?php echo $consulta[9] ?>" /><br>
           <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
       </div>
