@@ -42,8 +42,8 @@ $nick=$_SESSION["nick_logueado"];
                                 <img class="img-fluid" src="imagenes/carritousu.jpg" alt="" />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Carrito</div>
-                                <div class="portfolio-caption-subheading text-muted">Mostrar carrito</div>
+                                <div class="portfolio-caption-heading">Tienda</div>
+                                <div class="portfolio-caption-subheading text-muted">Ir a la tienda</div>
                             </div>
                         </div>
                     </div>

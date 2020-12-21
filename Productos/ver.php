@@ -1,4 +1,28 @@
 <?php
+
+	
+session_start();
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+	
 if(!empty($_GET['id'])){
     //Credenciales de conexion
     $Host = 'localhost';
@@ -23,7 +47,8 @@ if(!empty($_GET['id'])){
         //Mostrar Imagen
         header("Content-type: image/jpg"); 
         echo $imgDatos['imagenes']; 
-        ?> <a href="a_index.php"><button>Cerrar</button></a><?php
+        
+        ?> <?php
     }else{
         echo 'Imagen no existe...';
     }

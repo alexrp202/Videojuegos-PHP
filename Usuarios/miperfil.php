@@ -1,16 +1,27 @@
 <?php
+	
 session_start();
 		
-if(!isset($_SESSION["nick_logueado"])){
-    ?>
-    <script type="text/javascript">
-    alert("No estas logueado");
-    window.location.href='./login.html';
-        </script>
-        <?php	
-}
-$nick=$_SESSION["nick_logueado"];
-
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+	
 $consulta = ConsultarProducto($_SESSION["nick_logueado"]);
 
 function ConsultarProducto($nick)
@@ -68,7 +79,7 @@ function ConsultarProducto($nick)
                     </div>
                     <label>Contraseña</label>
                     <div class="form-group" id="contrasena-group">
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="8" required value="<?php echo $consulta[2] ?>"> 
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="8" required> 
 					</div>
                     <label>Email</label>
 					<div class="form-group" id="email-group">

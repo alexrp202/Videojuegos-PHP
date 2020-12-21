@@ -1,21 +1,27 @@
 <?php
-include "a_conexion.php";
-
-
-
+	
 session_start();
-
-if (!isset($_SESSION["nick_logueado"])) {
-?>
-  <script type="text/javascript">
-    alert("No estas logueado");
-    window.location.href = './login.html';
-  </script>
-<?php
-}
-$nick = $_SESSION["nick_logueado"];
-
-?>
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+		?>
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +31,6 @@ $nick = $_SESSION["nick_logueado"];
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../css/Header-Nightsky.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 
 </head>

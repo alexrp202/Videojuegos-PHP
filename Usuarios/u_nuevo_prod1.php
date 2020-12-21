@@ -1,19 +1,27 @@
 <?php
-include "u_conexion.php";
-
+	
 session_start();
-
-if (!isset($_SESSION["nick_logueado"])) {
-?>
-	<script type="text/javascript">
-		alert("No estas logueado");
-		window.location.href = '../login.html';
-	</script>
-<?php
-}
-$nick = $_SESSION["nick_logueado"];
-?>
-
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+		?>
 <!DOCTYPE html>
 <html>
 
@@ -31,26 +39,8 @@ $nick = $_SESSION["nick_logueado"];
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<a class="navbar-brand" href="#"><img style="width: 50%;" src="../imagenes/gitfuck.png" alt=""></a>
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="../productos/a_index.php">Gestionar Productos</a></li>
-						<li><a href="../usuarios/u_index.php">Gestionar Usuarios</a></li>
-						<li><a href="../carrito/index.php">Mostrar Carrito</a></li>
-						<li><a href="../xml/menuxml.php">XML</a></li>
-						<li><a href="../excel/menuexcel.php">CSV</a></li>
-
-
-
-
-					</ul>
-				</div>
+				
+				
 			</div>
 		</nav>
 		<div class="hero">
@@ -92,7 +82,7 @@ $nick = $_SESSION["nick_logueado"];
 				</form>
 				</form>
 			</div>
-
+			<a href="u_index.php"> <button class="btn btn-primary">Atras</button></a>
 		</div>
 
 

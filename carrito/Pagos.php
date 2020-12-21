@@ -1,6 +1,4 @@
 <?php
-
-
 	
 session_start();
 		
@@ -12,7 +10,17 @@ session_start();
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
 		
 // include database configuration file
 include 'Configuracion.php';
@@ -54,7 +62,7 @@ $_SESSION['sessCustomerID']=$custRow['id'];
 <div class="panel-heading"> 
 
 <ul class="nav nav-pills">
-  <li role="presentation"><a href="index.php">Inicio</a></li>
+  <li role="presentation"><a href="index/index.php">Inicio</a></li>
   <li role="presentation"><a href="VerCarta.php">Ver Carta</a></li>
   <li role="presentation" class="active"><a href="Pagos.php">Pagos</a></li>
 </ul>
@@ -105,7 +113,7 @@ $_SESSION['sessCustomerID']=$custRow['id'];
         <p>Direccion del cliente:<b> <?php echo $custRow['address']; ?></b></p>
     </div>
     <div class="footBtn">
-        <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
+        <a href="index/index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continuar Comprando</a>
         <a href="AccionCarta.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
     </div>
         </div>

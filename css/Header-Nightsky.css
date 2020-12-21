@@ -78,14 +78,14 @@ body {
 .header-nightsky .hero h1 {
     color: white;
     font-weight: bold;
-    font-size: 60px;
+    font-size: 100px;
     margin-bottom: 36px;
 }
 
 
 .header-nightsky .hero p {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 22px;
+    font-size: 50px;
     max-width: 660px;
     margin: 0 auto 20px;
     font-weight: normal;

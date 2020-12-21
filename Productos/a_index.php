@@ -6,11 +6,21 @@ session_start();
 			?>
 			<script type="text/javascript">
 			alert("No estas logueado");
-			window.location.href='./login.html';
+			window.location.href='../login.html';
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
 		?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +53,7 @@ session_start();
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="../productos/a_index.php">Gestionar Productos</a></li>
                         <li><a href="../usuarios/u_index.php">Gestionar Usuarios</a></li>
-                        <li><a href="../carrito/index.php">Mostrar Carrito</a></li>
+                        <li><a href="../carrito/index/index.php">Mostrar Tienda</a></li>
                         <li><a href="../xml/menuxml.php">XML</a></li>
                         <li><a href="../excel/menuexcel.php">CSV</a></li>
                        
@@ -55,7 +65,7 @@ session_start();
             </div>
         </nav>
         <div class="hero">
-            <h1>Gestionar productos</h1>
+            <h1>Gestionar productos </h1>
             <a href="a_nuevo_prod1.php"> <button  type="button" class="btn btn-primary w-auto">Nuevo Producto</button> </a>
             <br><br>
   <div id="contenido">
@@ -86,7 +96,7 @@ session_start();
  <!-- Desencadenar el modal con un botón -->
  
     <td>
- <button type="button" class="btn btn-warning openBtn">Mostrar Caratula</button>
+ <button type="button" class="btn btn-warning openBtn<?php echo $id?> ">Mostrar Caratula </button>
     <br><br>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -116,8 +126,8 @@ session_start();
 
 <script>
 
-$('.openBtn').on('click',function(){
-    $('.modal-body').load('CargarContenido.php?id=<?php echo $fila['id'] ?>',function(){
+$('.openBtn<?php echo $id?>').on('click',function(){
+    $('.modal-body').load('CargarContenido.php?id=<?php echo $id ?>',function(){
         $('#myModal').modal({show:true});
     });
 });

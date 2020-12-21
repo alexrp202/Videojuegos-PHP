@@ -1,18 +1,27 @@
 <?php
-
-
+	
 session_start();
-
-if (!isset($_SESSION["nick_logueado"])) {
-?>
-  <script type="text/javascript">
-    alert("No estas logueado");
-    window.location.href = '../login.html';
-  </script>
-<?php
-}
-$nick = $_SESSION["nick_logueado"];
-
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+		
 $consulta = ConsultarProducto($_GET['id']);
 
 function ConsultarProducto($id_prod)
@@ -24,7 +33,6 @@ function ConsultarProducto($id_prod)
 
   return [
     $fila['id'],
-    $fila['name'],
     $fila['email'],
     $fila['phone'],
     $fila['address'],
@@ -83,22 +91,19 @@ function ConsultarProducto($id_prod)
             <h3>Id </h3>
             <input type="text" disabled class="form-control" name="name" value="<?php echo $consulta[0] ?>"><br>
 
-            <h3>Nombre </h3>
-            <div class="form-group" id="user-group">
-              <input type="text" name="name" class="form-control" placeholder="Nombre de usuario" minlength="5" maxlength="40" required value="<?php echo $consulta[1] ?>">
-            </div>
+            
             <h3>Email </h3>
             <div class="form-group" id="email-group">
-              <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required value="<?php echo $consulta[2] ?>">
+              <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required value="<?php echo $consulta[1] ?>">
             </div>
 
             <h3>Telefono </h3>
             <div class="form-group" id="tel-group">
-              <input type="tel" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[3] ?>">
+              <input type="tel" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[2] ?>">
             </div>
             <h3>Direccion </h3>
             <div class="form-group" id="direccion-group">
-              <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[4] ?>">
+              <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[3] ?>">
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
           </form>

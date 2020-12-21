@@ -10,7 +10,17 @@ session_start();
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
 		?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +50,7 @@ session_start();
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="../productos/a_index.php">Gestionar Productos</a></li>
                         <li><a href="../usuarios/u_index.php">Gestionar Usuarios</a></li>
-                        <li><a href="../carrito/index.php">Mostrar Carrito</a></li>
+                        <li><a href="../carrito/index/index.php">Mostrar Tienda</a></li>
                         <li><a href="../xml/menuxml.php">XML</a></li>
                         <li><a href="../excel/menuexcel.php">CSV</a></li>
                     </ul>

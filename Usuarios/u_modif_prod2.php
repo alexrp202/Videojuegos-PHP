@@ -1,5 +1,4 @@
 <?php
-
 	
 session_start();
 		
@@ -11,17 +10,26 @@ session_start();
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
-	
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+		
+	ModificarProducto($_GET['id'], $_POST['email'], $_POST['phone'], $_POST['address'] );
 
-	ModificarProducto($_GET['id'], $_POST['name'], $_POST['password'], $_POST['email'], $_POST['phone'], $_POST['address'] );
-
-	function ModificarProducto($id,$name,$password_cifrada,$email,$phone,$address)
+	function ModificarProducto($id,$email,$phone,$address)
 	{
-		$password_cifrada=password_hash($_POST['password'], PASSWORD_DEFAULT);
+		
 		include 'u_conexion.php';
 		echo $sentencia="UPDATE clientes 
-		SET id='".$id."',name='".$name."',password='".$password_cifrada."',email='".$email."',phone='".$phone."',address='".$address."'
+		SET id='".$id."',email='".$email."',phone='".$phone."',address='".$address."'
 		WHERE id='".$id."' ";
 		$conexion->query($sentencia) or die ("Error al actualizar datos".mysqli_error($conexion));
 	}

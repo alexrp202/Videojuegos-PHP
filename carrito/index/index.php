@@ -19,7 +19,7 @@ include '../Configuracion.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>PULA | E-Shopper</title>
+	<title>GITFUCK | Tienda Online</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/prettyPhoto.css" rel="stylesheet">
@@ -53,7 +53,7 @@ include '../Configuracion.php';
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><img src="../../imagenes/gitfuck.PNG" width="250px" alt="" /></li>
-								<li><a href="index.html">Home</a></li>
+								<li><a class="active" href="#">Home</a></li>
 								<li><a href="../VerCarta.php">Ver carrito</a></li>
 								<?php
 

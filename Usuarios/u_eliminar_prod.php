@@ -9,11 +9,22 @@ session_start();
 			?>
 			<script type="text/javascript">
 			alert("No estas logueado");
-			window.location.href='./login.html';
+			window.location.href='../login.html';
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+		
 		
 	EliminarVid($_GET['id']);
 

@@ -1,7 +1,6 @@
-<?php session_start();
-
+<?php
 	
-
+session_start();
 		
 		if(!isset($_SESSION["nick_logueado"])){
 			?>
@@ -11,7 +10,17 @@
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
 		
 class Cart {
     protected $cart_contents = array();

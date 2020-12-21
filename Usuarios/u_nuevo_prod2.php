@@ -1,6 +1,4 @@
 <?php
-
-
 	
 session_start();
 		
@@ -12,7 +10,17 @@ session_start();
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
 		
 $name=$_POST["name"];
 $password=$_POST["password"];

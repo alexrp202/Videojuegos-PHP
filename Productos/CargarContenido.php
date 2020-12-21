@@ -1,4 +1,29 @@
 <?php
+	
+session_start();
+		
+		if(!isset($_SESSION["nick_logueado"])){
+			?>
+			<script type="text/javascript">
+			alert("No estas logueado");
+			window.location.href='../login.html';
+				</script>
+				<?php	
+		}
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
+		
+$id=$_GET['id'];
+echo $id;
 if(!empty($_GET['id'])){
     //DB detalles de conexion
     $Host = 'localhost';
@@ -15,16 +40,17 @@ if(!empty($_GET['id'])){
     
     //Traer contenido de la base de datos
 	$conexion->set_charset("utf8");
-    $query = $conexion->query("SELECT * FROM mis_productos WHERE id = {$_GET['id']}");
+    $query = $conexion->query("SELECT * FROM mis_productos WHERE id='".$id."'");
     
     if($query->num_rows > 0){
         $contenido = $query->fetch_assoc();
         ?>
-         <img src='ver.php?id=<?php echo $contenido['id'] ?>' alt='Img blob desde MySQL' width="400" />
+         <img src='ver.php?id=<?php echo $_GET['id'] ?>' alt='Img blob desde MySQL' width="400" />
          
          
          
          <?php
+        
     }
 }
 ?>

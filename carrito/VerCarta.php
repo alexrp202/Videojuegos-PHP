@@ -1,5 +1,4 @@
 <?php
-
 	
 session_start();
 		
@@ -11,7 +10,17 @@ session_start();
 				</script>
 				<?php	
 		}
-		$nick=$_SESSION["nick_logueado"];
+        $nick=$_SESSION["nick_logueado"];
+        
+        if (!($nick=="admin")){
+            ?>
+			<script type="text/javascript">
+			alert("No eres admin");
+			window.location.href='../login.html';
+				</script>
+                <?php	
+               
+		}
 		
 // initializ shopping cart class
 include 'La-carta.php';
@@ -49,7 +58,7 @@ $cart = new Cart;
 <div class="panel-heading"> 
 
 <ul class="nav nav-pills">
-  <li role="presentation"><a href="index.php">Inicio</a></li>
+  <li role="presentation"><a href="index/index.php">Inicio</a></li>
   <li role="presentation" class="active"><a href="VerCarta.php">Ver Carta</a></li>
   <li role="presentation"><a href="Pagos.php">Pagos</a></li>
 </ul>
@@ -91,7 +100,7 @@ $cart = new Cart;
     </tbody>
     <tfoot>
         <tr>
-            <td><a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a></td>
+            <td><a href="index/index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continuar Comprando</a></td>
             <td colspan="2"></td>
             <?php if($cart->total_items() > 0){ ?>
             <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
