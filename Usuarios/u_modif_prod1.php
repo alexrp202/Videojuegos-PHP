@@ -32,7 +32,6 @@ function ConsultarProducto($id_prod)
   $fila = $resultado->fetch_assoc();
 
   return [
-    $fila['id'],
     $fila['email'],
     $fila['phone'],
     $fila['address'],
@@ -88,22 +87,21 @@ function ConsultarProducto($id_prod)
          
           <br>
           <form action="u_modif_prod2.php?id=<?php echo $_GET['id'] ?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
-            <h3>Id </h3>
-            <input type="text" disabled class="form-control" name="name" value="<?php echo $consulta[0] ?>"><br>
+           
 
             
             <h3>Email </h3>
             <div class="form-group" id="email-group">
-              <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required value="<?php echo $consulta[1] ?>">
+              <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required value="<?php echo $consulta[0] ?>">
             </div>
 
             <h3>Telefono </h3>
             <div class="form-group" id="tel-group">
-              <input type="tel" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[2] ?>">
+              <input type="tel" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[1] ?>">
             </div>
             <h3>Direccion </h3>
             <div class="form-group" id="direccion-group">
-              <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[3] ?>">
+              <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[2] ?>">
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
           </form>

@@ -31,7 +31,18 @@ $cart = new Cart;
 
 // redirect to home if cart is empty
 if($cart->total_items() <= 0){
-    header("Location: index.php");
+   
+    ?>
+    <script type="text/javascript">
+	alert("No tienes ningun articulo en el carrito!");
+	window.location.href='VerCarta.php';
+</script>
+<?php
+
+
+
+
+
 }
 $nick=$_SESSION["nick_logueado"];
 // get customer details by session customer ID

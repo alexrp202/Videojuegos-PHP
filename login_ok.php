@@ -43,7 +43,14 @@ header("Content-Type: text/html;charset=utf-8");
 		$numero=$fila["cuantos"];
 	}
 	if($numero==0){
-		echo "El usuario no existe";
+
+		?>
+		 <script type="text/javascript">
+	alert("El usuario no existe");
+	window.location.href='login.html';
+		</script> 
+		<?php
+		
 	}
 	else{
 	$instruccion = "select password as cuantos from clientes where name = '$name'";

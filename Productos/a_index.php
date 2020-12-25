@@ -155,6 +155,7 @@ $('.openBtn<?php echo $id?>').on('click',function(){
         
     </table>
 
+<br><br>
       
     <footer >
   <a href="../menu_admin.php">  <button type='button' class='btn btn-primary'>Atras</button> 

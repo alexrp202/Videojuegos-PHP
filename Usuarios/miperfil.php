@@ -11,16 +11,7 @@ session_start();
 				<?php	
 		}
         $nick=$_SESSION["nick_logueado"];
-        
-        if (!($nick=="admin")){
-            ?>
-			<script type="text/javascript">
-			alert("No eres admin");
-			window.location.href='../login.html';
-				</script>
-                <?php	
-               
-		}
+      
 	
 $consulta = ConsultarProducto($_SESSION["nick_logueado"]);
 
@@ -34,7 +25,6 @@ function ConsultarProducto($nick)
   return [
     $fila['id'],
     $fila['name'],
-    $fila['password'],
     $fila['email'],
     $fila['phone'],
     $fila['address'],
@@ -69,11 +59,11 @@ function ConsultarProducto($nick)
           <h1>Mi perfil</h1>
         </span>
         <br>
-        <form action="miperfilvalidar.php?id=<?php echo $_SESSION["nick_logueado"]?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
+        <form action="miperfilvalidar.php?id=<?php echo $consulta[0]?>" method="POST" style="border-collapse: separate; border-spacing: 10px 5px;">
       
-        
+               
 
-                    <label>Nombre Usuario</label>
+                    <label>Nombre Usuario </label>
                     <div class="form-group" id="user-group">
                         <input type="text" name="name" class="form-control" placeholder="Nombre de usuario"  minlength="5" maxlength="40" required value="<?php echo $consulta[1] ?>">
                     </div>
@@ -83,15 +73,15 @@ function ConsultarProducto($nick)
 					</div>
                     <label>Email</label>
 					<div class="form-group" id="email-group">
-                        <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required value="<?php echo $consulta[3] ?>"> 
+                        <input type="email" name="email" class="form-control" placeholder="Intruduce tu email" required value="<?php echo $consulta[2] ?>"> 
 					</div>
                     <label>Telefono</label>
 					<div class="form-group" id="tel-group">
-                        <input type="tel" pattern="[0-9]{9}"   name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[4] ?>"> 
+                        <input type="tel" pattern="[0-9]{9}"   name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[3] ?>"> 
 					</div>
                     <label>Direccion</label>
 					<div class="form-group" id="direccion-group">
-                        <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[5] ?>"> 
+                        <input type="text" name="address" class="form-control" placeholder="Intruduce tu direccion" minlength="8" required value="<?php echo $consulta[4] ?>"> 
           </div>
           <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
