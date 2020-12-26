@@ -24,9 +24,9 @@ $nick=$_SESSION["nick_logueado"];
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
 
-        <body background="imagenes/fondousuario.jpg" style="background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+        <body>
  <!-- Portfolio Grid-->
- <section class="page-section bg-light" id="portfolio">
+ <section class="page-section" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Menu de usuario</h2>

@@ -49,7 +49,7 @@ session_start();
 
         
  <!-- Portfolio Grid-->
- <section class="page-section bg-light" id="portfolio">
+ <section class="page-section" id="portfolio">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Menu Admin</h2>
@@ -104,7 +104,7 @@ session_start();
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <center><img class="img-fluid" width="60%" src="imagenes/XML.jpg" alt="" /></center>
+                                <center><img class="img-fluid" width="60%" src="imagenes/XML.png" alt="" /></center>
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Exportar a XML</div>

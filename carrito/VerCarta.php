@@ -12,15 +12,7 @@ session_start();
 		}
         $nick=$_SESSION["nick_logueado"];
         
-        if (!($nick=="admin")){
-            ?>
-			<script type="text/javascript">
-			alert("No eres admin");
-			window.location.href='../login.html';
-				</script>
-                <?php	
-               
-		}
+     
 		
 // initializ shopping cart class
 include 'La-carta.php';
@@ -32,6 +24,7 @@ $cart = new Cart;
     <title>View Cart - PHP Shopping Cart Tutorial</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
