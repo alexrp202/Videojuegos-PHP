@@ -106,7 +106,7 @@ include '../Configuracion.php';
 
 											<select class="form-control " style="width: auto;" name='seleccion'>
 												<option selected disabled>Selecciona una</option>
-												<option value='0'>Id</option>
+												<option value='0'>Todos</option>
 												<option value='1'>Precio Mayor a menor</option>
 												<option value='7'>Precio Menor a mayor</option>
 												<option value='2'>Videojuegos de Terror</option>
@@ -132,8 +132,8 @@ include '../Configuracion.php';
 
 
 						if ($ordenar == 0) {
-							$filtrar = "id";
-							$query = $db->query("SELECT * FROM mis_productos ORDER BY $filtrar DESC LIMIT 10 ");
+							$filtrar = "Todos";
+							$query = $db->query("SELECT * FROM mis_productos ORDER BY id DESC LIMIT 10 ");
 						} else if ($ordenar == 1) {
 							$filtrar = "Precio mayor a menor";
 							$query = $db->query("SELECT * FROM mis_productos ORDER BY price DESC LIMIT 10 ");
