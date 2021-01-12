@@ -11,17 +11,7 @@ session_start();
 				<?php	
 		}
         $nick=$_SESSION["nick_logueado"];
-        
-        if (!($nick=="admin")){
-            ?>
-			<script type="text/javascript">
-			alert("No eres admin");
-			window.location.href='../login.html';
-				</script>
-                <?php	
-               
-		}
-		
+     
 // include database configuration file
 include 'Configuracion.php';
 

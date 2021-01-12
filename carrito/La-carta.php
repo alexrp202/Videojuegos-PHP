@@ -12,15 +12,7 @@ session_start();
 		}
         $nick=$_SESSION["nick_logueado"];
         
-        if (!($nick=="admin")){
-            ?>
-			<script type="text/javascript">
-			alert("No eres admin");
-			window.location.href='../login.html';
-				</script>
-                <?php	
-               
-		}
+     
 		
 class Cart {
     protected $cart_contents = array();
