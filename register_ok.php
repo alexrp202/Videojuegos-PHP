@@ -1,15 +1,18 @@
 <?php
 header("Content-Type: text/html;charset=utf-8");
-if (isset($_POST["nick"]))
-{
+if (isset($_POST["nick"])){
 	$name = $_POST["nick"];
 	$password = $_POST["password"];
 	$password_cifrada=password_hash($password, PASSWORD_DEFAULT);
 	$email = $_POST["email"];
 	$telefono = $_POST["telefono"];
 	$direccion = $_POST["direccion"];
+	$password2 = $_POST["password2"];
+
+	if($password==$password2){
 
 
+	
 
 	$con = mysqli_connect("localhost","root","usbw","test");
 	
@@ -61,8 +64,16 @@ if (isset($_POST["nick"]))
 	}
 
 }
-else 
-{
-	echo ("ERROR: No se puede introducir un nick en blanco");
+else{
+	?>
+	
+			<script type="text/javascript">
+			alert("La contraseña no es la misma");
+			window.location.href='register.html';
+			</script>
+
+		<?php
+
+}
 }
 ?>

@@ -44,7 +44,7 @@ $_SESSION['sessCustomerID']=$custRow['id'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pagos - PHP Carrito de compras Tutorial</title>
+    <title>Pagos</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

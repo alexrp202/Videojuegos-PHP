@@ -24,6 +24,7 @@ session_start();
 		
 		<html>
 <head>
+<title>Menu Admin</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

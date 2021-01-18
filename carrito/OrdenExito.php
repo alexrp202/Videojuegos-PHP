@@ -12,15 +12,7 @@ session_start();
 		}
         $nick=$_SESSION["nick_logueado"];
         
-        if (!($nick=="admin")){
-            ?>
-			<script type="text/javascript">
-			alert("No eres admin");
-			window.location.href='../login.html';
-				</script>
-                <?php	
-               
-		}
+      
 			
 if(!isset($_REQUEST['id'])){
   header("Location: index.php");
@@ -31,7 +23,7 @@ if(!isset($_REQUEST['id'])){
 <html lang="en">
 <head>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Orden Completado - PHP Carrito de Compras</title>
+    <title>Orden Completado </title>
     <meta charset="utf-8">
     <style>
     .container{padding: 20px;}
@@ -45,7 +37,7 @@ if(!isset($_REQUEST['id'])){
 <div class="panel-heading"> 
 
 <ul class="nav nav-pills">
-  <li role="presentation"><a href="index.php">Inicio</a></li>
+  <li role="presentation"><a href="index/index.php">Inicio</a></li>
 </ul>
 </div>
 
@@ -54,7 +46,7 @@ if(!isset($_REQUEST['id'])){
     <h1>Estado de su Orden</h1>
     <p>Su pedido ha sido enviado exitosamente. La ID del pedido es #<?php echo $_GET['id']; ?></p>
            </div>
- <div class="panel-footer">BaulPHP</div>
+ <div class="panel-footer">GitFuck</div>
  </div><!--Panek cierra-->
 </div>
 </body>

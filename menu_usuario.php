@@ -15,7 +15,7 @@ $nick=$_SESSION["nick_logueado"];
  
  
  <!-- Font Awesome icons (free version)-->
-
+ <title>Menu Usuario</title>
   <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -26,6 +26,7 @@ $nick=$_SESSION["nick_logueado"];
 
         <body>
  <!-- Portfolio Grid-->
+
  <section class="page-section" id="portfolio">
             <div class="container">
                 <div class="text-center">

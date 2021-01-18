@@ -21,7 +21,7 @@ $cart = new Cart;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>View Cart - PHP Shopping Cart Tutorial</title>
+    <title>Carrito</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
@@ -80,9 +80,9 @@ $cart = new Cart;
         ?>
         <tr>
             <td><?php echo $item["name"]; ?></td>
-            <td><?php echo '$'.$item["price"].' USD'; ?></td>
+            <td><?php echo '€'.$item["price"].' EUR'; ?></td>
             <td><?php echo $item["qty"]; ?></td>
-            <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+            <td><?php echo '€'.$item["subtotal"].' EUR'; ?></td>
             <td>
                 <a href="AccionCarta.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
@@ -96,7 +96,7 @@ $cart = new Cart;
             <td><a href="index/index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continuar Comprando</a></td>
             <td colspan="2"></td>
             <?php if($cart->total_items() > 0){ ?>
-            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
+            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' EUR'; ?></strong></td>
             <td><a href="Pagos.php" class="btn btn-success btn-block">Pagos <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
         </tr>
