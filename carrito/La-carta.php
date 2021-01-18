@@ -111,45 +111,6 @@ class Cart {
 	}
     
     /**
-	 * Update the cart
-	 * @param	array
-	 * @return	bool
-	 */
-	public function update($item = array()){
-		if (!is_array($item) OR count($item) === 0){
-			return FALSE;
-		}else{
-			if (!isset($item['rowid'], $this->cart_contents[$item['rowid']])){
-				return FALSE;
-			}else{
-				// prep the quantity
-				if(isset($item['qty'])){
-					$item['qty'] = (float) $item['qty'];
-					// remove the item from the cart, if quantity is zero
-					if ($item['qty'] == 0){
-						unset($this->cart_contents[$item['rowid']]);
-						return TRUE;
-					}
-				}
-				
-				// find updatable keys
-				$keys = array_intersect(array_keys($this->cart_contents[$item['rowid']]), array_keys($item));
-				// prep the price
-				if(isset($item['price'])){
-					$item['price'] = (float) $item['price'];
-				}
-				// product id & name shouldn't be changed
-				foreach(array_diff($keys, array('id', 'name')) as $key){
-					$this->cart_contents[$item['rowid']][$key] = $item[$key];
-				}
-				// save cart data
-				$this->save_cart();
-				return TRUE;
-			}
-		}
-	}
-    
-    /**
 	 * Save the cart array to the session
 	 * @return	bool
 	 */
@@ -175,7 +136,6 @@ class Cart {
 			return TRUE;
 		}
     }
-    
     /**
 	 * Remove Item: Removes an item from the cart
 	 * @param	int
