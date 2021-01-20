@@ -65,7 +65,7 @@ function ConsultarProducto($nick)
 
                     <label>Nombre Usuario </label>
                     <div class="form-group" id="user-group">
-                        <input type="text" name="name" class="form-control" placeholder="Nombre de usuario"  minlength="5" maxlength="40" required value="<?php echo $consulta[1] ?>">
+                        <input type="text" name="name" class="form-control" placeholder="Nombre de usuario"  minlength="5" maxlength="15" required value="<?php echo $consulta[1] ?>">
                     </div>
                     <label>Contraseña</label>
                     <div class="form-group" id="contrasena-group">
@@ -77,7 +77,7 @@ function ConsultarProducto($nick)
 					</div>
                     <label>Telefono</label>
 					<div class="form-group" id="tel-group">
-                        <input type="tel" pattern="[0-9]{9}"   name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[3] ?>"> 
+                        <input type="tel" pattern="[0-9]{9}" min="1"  name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[3] ?>"> 
 					</div>
                     <label>Direccion</label>
 					<div class="form-group" id="direccion-group">

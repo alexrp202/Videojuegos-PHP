@@ -97,7 +97,7 @@ function ConsultarProducto($id_prod)
 
             <h3>Telefono </h3>
             <div class="form-group" id="tel-group">
-              <input type="tel" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[1] ?>">
+              <input type="tel" min="1" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required value="<?php echo $consulta[1] ?>">
             </div>
             <h3>Direccion </h3>
             <div class="form-group" id="direccion-group">

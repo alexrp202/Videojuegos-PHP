@@ -66,7 +66,6 @@ function ConsultarProducto($id_prod)
         
         <div class="collapse navbar-collapse" id="myNavbar">
         
-        </div>
       </div>
     </nav>
     <div class="hero">
@@ -133,7 +132,7 @@ function ConsultarProducto($id_prod)
 
 <div class="row">
          <div class="col"> <h3>Desarrollador</h3> <input type="text" class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" required value="<?php echo $consulta[7] ?>"></div>
-         <div class="col"> <h3>Precio</h3> <input type="number" class="form-control" name="price" placeholder="Introducir precio"  required value="<?php echo $consulta[8] ?>" /><br></div>
+         <div class="col"> <h3>Precio</h3> <input type="number" min="1" class="form-control" name="price" placeholder="Introducir precio"  required value="<?php echo $consulta[8] ?>" /><br></div>
          <div class="col"> <h3>Imagen</h3> <input type="file" class="form-control" name="image" placeholder="Introducir precio" required value="<?php echo $consulta[9] ?>" /><br></div>
 
 </div>

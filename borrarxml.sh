@@ -1,1 +1,0 @@
-rm Z:/xml/terror.xml

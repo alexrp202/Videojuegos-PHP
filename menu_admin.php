@@ -57,6 +57,7 @@ session_start();
                     <h3 class="section-subheading text-muted">Bienvenido/a <?php echo $nick?></h3>
                 </div>
                 <div class="row">
+                <!-- TARJETAS -->
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-toggle="modal" href="carrito/index/index.php">

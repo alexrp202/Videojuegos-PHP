@@ -77,7 +77,7 @@ session_start();
       <th>Titulo.</th>
       <th>Descripcion</th>
       <th>Genero</th>
-      <th>Ano</th>
+      <th>Año</th>
       <th>Platafotma</th>
       <th>Pegi</th>
       <th>Desarrollador</th>

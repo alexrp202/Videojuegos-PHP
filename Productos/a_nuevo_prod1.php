@@ -84,7 +84,7 @@ session_start();
                 </select>
               </div>
               <div class="col">
-                <h3>Año</h3> <input type="number" required class="form-control" name="Ano" placeholder="Introducir Año"><br>
+                <h3>Año</h3> <input type="number" min="1990" max="2025" required class="form-control" name="Ano" placeholder="Introducir Año"><br>
               </div>
               <div class="col">
                 <h3>Plataforma</h3>
@@ -111,7 +111,7 @@ session_start();
 
             <div class="row">
               <div class="col"> <h3>Desarrollador</h3> <input type="text" required class="form-control" name="Desarrollador" placeholder="Introducir Desarrollador" /><br></div>
-              <div class="col"><h3>Precio</h3> <input type="number" required class="form-control" name="precio" placeholder="Introducir precio" /><br></div>
+              <div class="col"><h3>Precio</h3> <input type="number" min="1" required class="form-control" name="precio" placeholder="Introducir precio" /><br></div>
               <div class="col"><h3>Imagen</h3> <input type="file" required  id="image" name="image" multiple></div>
             </div>
 

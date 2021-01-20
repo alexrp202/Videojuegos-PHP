@@ -71,7 +71,7 @@ session_start();
 
 					<h3>Telefono</h3>
 					<div class="form-group" id="tel-group">
-						<input type="tel" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required>
+						<input type="tel" min="1" pattern="[0-9]{9}" name="phone" class="form-control" placeholder="Intruduce tu telefono" required>
 					</div>
 
 					<h3>Direccion</h3>

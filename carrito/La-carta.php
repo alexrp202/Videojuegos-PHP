@@ -11,9 +11,6 @@ session_start();
 				<?php	
 		}
         $nick=$_SESSION["nick_logueado"];
-        
-     
-		
 class Cart {
     protected $cart_contents = array();
     
